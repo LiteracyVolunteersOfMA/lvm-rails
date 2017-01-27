@@ -46,8 +46,16 @@ Running the following command will install RVM along with the latest version of 
 ```
 curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 ```
+Once you've installed rvm, check which ruby versions you have installed
+```
+rvm list
+```
+If you don't see `2.4.0`, install `2.4.0`
+```
+rvm install 2.4.0
+```
 
-In order to bundle the dependancies for the rails app, you need to install the `bundler` gem:
+In order to bundle the dependancies for the rails app, you need to install the `bundler` gem from inside the project direcory. When inside the project directory you should be using ruby 2.4.0 due to the presence of the `.ruby-version` file, but if you just installed it you may need to leave the directory and come back:
 
 ```
 gem install bundler
@@ -90,12 +98,12 @@ The application should be running and accessible at http://localhost:3000 !
     ```
     rake db:migrate
     ```
-    
+
     ```
     bundle install
     ```
-    
-    
+
+
 Now you're all set to run the rails server:
 
 ```
