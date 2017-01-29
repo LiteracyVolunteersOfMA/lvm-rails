@@ -12,6 +12,7 @@ gem 'jquery-rails', '~> 4.2'
 gem 'rails', '~> 5.0'
 gem 'rainbow', '< 2.2.1'
 gem 'rubocop', '~> 0.47', require: false
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5.0'
 gem 'uglifier', '~> 3.0'
