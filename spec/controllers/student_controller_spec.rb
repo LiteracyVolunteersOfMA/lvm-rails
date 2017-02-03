@@ -10,7 +10,7 @@ RSpec.describe StudentsController, type: :controller do
       it 'populates an array of all students' do
         students = [create(:student)]
         get :index
-        expect(assigns(:students)).to eq(students)
+        expect([assigns(:students).last]).to eq(students)
       end
 
       it 'renders the :index view' do
