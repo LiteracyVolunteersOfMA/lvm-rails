@@ -31,5 +31,12 @@ RSpec.describe Student, type: :model do
           .on(:create)
       end
     end
+
+    describe 'address' do
+      it 'validates presence' do
+        should validate_presence_of(:address)
+      end
+    end
+
   end
 end
