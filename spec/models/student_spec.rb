@@ -20,6 +20,6 @@ RSpec.describe Student, type: :model do
   end
 
   describe 'validations' do
-    #todo add validations
+    #todo add validation
   end
 end
