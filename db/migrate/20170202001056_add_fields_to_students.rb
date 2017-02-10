@@ -36,5 +36,6 @@ class AddFieldsToStudents < ActiveRecord::Migration[5.0]
     add_column :students, :origin_country   :string
     # matching
     add_column :students, :availability     :integer
+    add_column :students, :tutor_preference :integer
   end
 end
