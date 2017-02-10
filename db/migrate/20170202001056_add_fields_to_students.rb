@@ -34,15 +34,7 @@ class AddFieldsToStudents < ActiveRecord::Migration[5.0]
     add_column :students, :is_hispanic      :boolean
     add_column :students, :native_language  :string
     add_column :students, :origin_country   :string
-
-    # availability
-    create_table :availability do |t|
-      t.belongs_to :student, index: true
-      t.string :weekday
-      t.integer :availability :null => false
-
-      t.timestamps
-    end
-
+    # matching
+    add_column :students, :availability     :integer
   end
 end
