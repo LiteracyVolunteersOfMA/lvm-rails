@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe "affiliates/edit", type: :view do
   before(:each) do
     @affiliate = assign(:affiliate, Affiliate.create!(
-      :name => "MyString",
-      :address => "MyString",
-      :phone_number => "MyString",
-      :email => "MyString",
-      :website => "MyString",
-      :twitter => "MyString"
+      :name => "xyf",
+      :address => "21 Forsyth St.",
+      :phone_number => "603-------",
+      :email => "xyf@gmail.com",
+      :website => "affiliate.com",
+      :twitter => "affiliate@twitter.com"
     ))
   end
 

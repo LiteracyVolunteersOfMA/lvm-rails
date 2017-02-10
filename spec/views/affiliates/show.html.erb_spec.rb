@@ -5,8 +5,8 @@ RSpec.describe "affiliates/show", type: :view do
     @affiliate = assign(:affiliate, Affiliate.create!(
       :name => "Name",
       :address => "Address",
-      :phone_number => "Phone Number",
-      :email => "Email",
+      :phone_number => "PhoneNumber",
+      :email => "Email@g.com",
       :website => "Website",
       :twitter => "Twitter"
     ))
@@ -16,7 +16,7 @@ RSpec.describe "affiliates/show", type: :view do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Address/)
-    expect(rendered).to match(/Phone Number/)
+    expect(rendered).to match(/PhoneNumber/)
     expect(rendered).to match(/Email/)
     expect(rendered).to match(/Website/)
     expect(rendered).to match(/Twitter/)

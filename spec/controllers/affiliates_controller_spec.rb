@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AffiliateController, type: :controller do
+RSpec.describe AffiliatesController, type: :controller do
 
 
   # Return the minimal set of attributes required to create a valid Affiliate.
@@ -34,12 +34,12 @@ RSpec.describe AffiliateController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new affiliate as @affiliate" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:affiliate)).to be_a_new(Affiliate)
-    end
-  end
+  # describe "GET #new" do
+  #   it "assigns a new affiliate as @affiliate" do
+  #     get :new, params: {}, session: valid_session
+  #     expect(assigns(:affiliate)).to be_a_new(Affiliate)
+  #   end
+  # end
 
   describe "GET #edit" do
     it "assigns the requested affiliate as @affiliate" do
