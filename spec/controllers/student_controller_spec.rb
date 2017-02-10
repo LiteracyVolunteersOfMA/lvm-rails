@@ -6,7 +6,7 @@ RSpec.describe StudentsController, type: :controller do
       sign_in_auth
     end
 
-    describe 'GET #index' do
+/    describe 'GET #index' do
       it 'populates an array of all students' do
         students = [create(:student)]
         get :index
@@ -19,7 +19,7 @@ RSpec.describe StudentsController, type: :controller do
         expect(response).to render_template :index
       end
     end
-
+/
     describe 'GET #show' do
       before do
         @student = create(:full_student)
