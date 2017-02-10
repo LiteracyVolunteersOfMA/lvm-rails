@@ -10,7 +10,7 @@ RSpec.describe TutorsController, type: :controller do
       it 'populates an array of all tutors' do
         tutors = [create(:tutor)]
         get :index
-        expect([assigns(:tutors).last]).to eq(tutors)
+        expect(assigns(:tutors)).to eq(tutors)
       end
 
       it 'renders the :index view' do
@@ -22,18 +22,18 @@ RSpec.describe TutorsController, type: :controller do
 
     describe 'GET #show' do
       before do
-        @tutor = create(:tutor)
+        @tutor = create(:full_tutor)
       end
 
       it 'populates the specified tutor' do
-        get :show, id: @tutor
+        get :show, params: { id: @tutor }
         expect(assigns(:tutor)).to eq(@tutor)
       end
 
       it 'populates the coordinator of the specified tutor' do
         job = VolunteerJob.where(tutor_id: @tutor.id).take
-        coordinator = job.nil? ? nil : Coordinator.find(job.coordinator_id)
-        get :show, id: @tutor
+        coordinator = Coordinator.find(job.coordinator_id)
+        get :show, params: { id: @tutor }
         expect(assigns(:coordinator)).to eq(coordinator)
       end
 
@@ -41,12 +41,12 @@ RSpec.describe TutorsController, type: :controller do
         students = Match.where(tutor_id: @tutor.id, end: nil)
                         .to_a.map { |m| Student.find(m.student_id) }
 
-        get :show, id: @tutor
+        get :show, params: { id: @tutor }
         expect(assigns(:students)).to eq(students)
       end
 
       it 'renders the :show view' do
-        get :show, id: @tutor
+        get :show, params: { id: @tutor }
         expect(response).to render_template :show
       end
     end
@@ -69,12 +69,12 @@ RSpec.describe TutorsController, type: :controller do
       end
 
       it 'populates the specified tutor' do
-        get :edit, id: @tutor
+        get :edit, params: { id: @tutor }
         expect(assigns(:tutor)).to eq(@tutor)
       end
 
       it 'renders the :edit view' do
-        get :edit, id: @tutor
+        get :edit, params: { id: @tutor }
         expect(response).to render_template :edit
       end
     end
@@ -86,17 +86,17 @@ RSpec.describe TutorsController, type: :controller do
 
       context 'with valid attributes' do
         it 'saves the new tutor in the database' do
-          post :create, tutor: @tutor_attrs
+          post :create, params: { tutor: @tutor_attrs }
           expect(assigns(:tutor)).to be_persisted
         end
 
         it 'assigns the newly created tutor as @tutor' do
-          post :create, tutor: @tutor_attrs
+          post :create, params: { tutor: @tutor_attrs }
           expect(assigns(:tutor)).to be_a(Tutor)
         end
 
         it 'redirects to the newly created tutor view' do
-          post :create, tutor: @tutor_attrs
+          post :create, params: { tutor: @tutor_attrs }
           expect(response).to redirect_to(Tutor.last)
         end
       end
@@ -107,12 +107,12 @@ RSpec.describe TutorsController, type: :controller do
         end
 
         it 'assigns a newly created but unsaved tutor as @tutor' do
-          post :create, tutor: @tutor_attrs
+          post :create, params: { tutor: @tutor_attrs }
           expect(assigns(:tutor)).to be_a_new(Tutor)
         end
 
         it 're-renders the :new view' do
-          post :create, tutor: @tutor_attrs
+          post :create, params: { tutor: @tutor_attrs }
           expect(response).to render_template :new
         end
       end
@@ -126,17 +126,17 @@ RSpec.describe TutorsController, type: :controller do
 
       context 'with valid attributes' do
         it 'saves the updated tutor in the database' do
-          post :update, id: @tutor.id, tutor: @new_tutor_attrs
+          post :update, params: { id: @tutor.id, tutor: @new_tutor_attrs }
           expect(Tutor.last.last_name).to eq(@new_tutor_attrs[:last_name])
         end
 
         it 'assigns the updated tutor as @tutor' do
-          post :update, id: @tutor.id, tutor: @new_tutor_attrs
+          post :update, params: { id: @tutor.id, tutor: @new_tutor_attrs }
           expect(assigns(:tutor).last_name).to eq(@new_tutor_attrs[:last_name])
         end
 
         it 'redirects to the tutor view' do
-          post :update, id: @tutor.id, tutor: @new_tutor_attrs
+          post :update, params: { id: @tutor.id, tutor: @new_tutor_attrs }
           expect(response).to redirect_to(@tutor)
         end
       end
@@ -147,12 +147,12 @@ RSpec.describe TutorsController, type: :controller do
         end
 
         it 'assigns the existing tutor as @tutor' do
-          post :update, id: @tutor, tutor: @new_tutor_attrs
+          post :update, params: { id: @tutor, tutor: @new_tutor_attrs }
           expect(assigns(:tutor)).to eq(@tutor)
         end
 
         it 're-renders the :edit view' do
-          post :update, id: @tutor, tutor: @new_tutor_attrs
+          post :update, params: { id: @tutor, tutor: @new_tutor_attrs }
           expect(response).to render_template :edit
         end
       end
@@ -161,12 +161,12 @@ RSpec.describe TutorsController, type: :controller do
     describe 'DELETE #destroy' do
       it 'destroys the tutor' do
         tutor = create(:tutor)
-        expect { delete :destroy, id: tutor }
+        expect { delete :destroy, params: { id: tutor } }
           .to change(Tutor, :count).by(-1)
       end
       it 'redirects to the :index view' do
         tutor = create(:tutor)
-        delete :destroy, id: tutor
+        delete :destroy, params: { id: tutor }
         expect(response).to redirect_to tutors_path
       end
     end
@@ -178,7 +178,7 @@ RSpec.describe TutorsController, type: :controller do
       end
 
       it 'matches the student with the specified tutor' do
-        put :add_student, tutor_id: @tutor, student_id: @student
+        put :add_student, params: { tutor_id: @tutor, student_id: @student }
         expect(
           Match.where(
             student_id: @student, tutor_id: @tutor, end: nil
@@ -187,7 +187,7 @@ RSpec.describe TutorsController, type: :controller do
       end
 
       it 'redirects to tutor#show' do
-        put :add_student, tutor_id: @tutor, student_id: @student
+        put :add_student, params: { tutor_id: @tutor, student_id: @student }
         expect(response).to redirect_to(@tutor)
       end
     end
