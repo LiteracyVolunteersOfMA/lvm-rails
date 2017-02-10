@@ -21,7 +21,7 @@ class AddFieldsToStudents < ActiveRecord::Migration[5.0]
     add_column :students, :home_lvm_ok,     :boolean
     add_column :students, :work_number,     :string
     add_column :students, :work_ok,         :boolean
-    add_column :students, :lvm_ok,          :boolean
+    add_column :students, :work_lvm_ok,     :boolean
     add_column :students, :alternate_number :string
     # emergency contact
     add_column :students, :emergency_name   :string
