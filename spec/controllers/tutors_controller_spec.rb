@@ -22,7 +22,7 @@ RSpec.describe TutorsController, type: :controller do
 
     describe 'GET #show' do
       before do
-        @tutor = create(:full_tutor)
+        @tutor = create(:employed_tutor)
       end
 
       it 'populates the specified tutor' do
