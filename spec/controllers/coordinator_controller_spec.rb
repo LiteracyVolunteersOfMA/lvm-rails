@@ -20,6 +20,8 @@ RSpec.describe CoordinatorsController, type: :controller do
       end
     end
 /
+ 
+
     describe 'GET #show' do
       before do
         @coordinator = create(:coordinator)
@@ -29,13 +31,7 @@ RSpec.describe CoordinatorsController, type: :controller do
         get :show, id: @coordinator
         expect(assigns(:coordinator)).to eq(@coordinator)
       end
-/
-      it 'popultes a match' do
-        match = Match.where(coordinator_id: @coordinator.id).take
-        get :show, id: @coordinator
-        expect(assigns(:match)).to eq(match)
-      end
-/
+      
       it 'populates an enrollment' do
         enrollment = Enrollment.where(coordinator_id: @coordinator.id).take
         get :show, id: @coordinator
@@ -167,98 +163,5 @@ RSpec.describe CoordinatorsController, type: :controller do
         expect(response).to redirect_to coordinators_path
       end
     end
-/
-    describe 'PUT #set_tutor' do
-      context 'when tutor_id is zero' do
-        before do
-          @tutor_id = 0
-        end
-
-        it 'does not set up a new match for the coordinator' do
-          coordinator = create(:coordinator)
-          put :set_tutor, tutor_id: @tutor_id, coordinator_id: coordinator
-          expect(Match.where(coordinator_id: coordinator, end: nil).length).to be(0)
-        end
-
-        context 'when coordinator has a tutor' do
-          it 'unmatches the current tutor' do
-            coordinator = create(:matched_coordinator)
-            tutor_id = Match.where(coordinator_id: coordinator).take.tutor_id
-            put :set_tutor, tutor_id: @tutor_id, coordinator_id: coordinator
-            expect(
-              Match.where(coordinator_id: coordinator, tutor_id: tutor_id).take.end
-            ).not_to eq(nil)
-          end
-        end
-      end
-
-      context 'when tutor_id is nonzero' do
-        before do
-          @tutor = create(:tutor)
-        end
-
-        context 'when the coordinator does not have a tutor' do
-          it 'matches the coordinator with the specified tutor' do
-            coordinator = create(:coordinator)
-            put :set_tutor, tutor_id: @tutor, coordinator_id: coordinator
-            expect(
-              Match.where(coordinator_id: coordinator, tutor_id: @tutor).length
-            ).to eq(1)
-          end
-        end
-
-        context 'when coordinator has a tutor' do
-          before(:each) do
-            @coordinator = create(:matched_coordinator)
-            @old_tutor = Match.where(coordinator_id: @coordinator).take.tutor_id
-          end
-
-          context "when specified tutor is coordinator's current tutor" do
-            before do
-              @new_tutor = @old_tutor
-            end
-
-            it "does not unmatch the coordinator's current tutor" do
-              put :set_tutor, tutor_id: @new_tutor, coordinator_id: @coordinator
-              expect(
-                Match.where(
-                  coordinator_id: @coordinator, tutor_id: @old_tutor, end: nil
-                ).length
-              ).to eq(1)
-            end
-
-            it 'does not set up a new match for the coordinator' do
-              put :set_tutor, tutor_id: @new_tutor, coordinator_id: @coordinator
-              # That is, the coordinator started with and ended with exactlt 1 match
-              expect(Match.where(coordinator_id: @coordinator).length).to eq(1)
-            end
-          end
-
-          context "when specified tutor is not coordinator's current tutor" do
-            before do
-              @new_tutor = create(:tutor)
-            end
-
-            it "unmatches the coordinator's current tutor" do
-              put :set_tutor, tutor_id: @new_tutor, coordinator_id: @coordinator
-              expect(
-                Match.where(
-                  coordinator_id: @coordinator, tutor_id: @old_tutor, end: nil
-                ).length
-              ).to eq(0)
-            end
-
-            it 'matches the coordinator with the specified tutor' do
-              put :set_tutor, tutor_id: @new_tutor, coordinator_id: @coordinator
-              expect(
-                Match.where(
-                  coordinator_id: @coordinator, tutor_id: @new_tutor, end: nil
-                ).length
-              ).to eq(1)
-            end
-          end
-        end
-      end
-    end /
   end
 end
