@@ -128,8 +128,8 @@ RSpec.describe StudentsController, type: :controller do
 
         it 'assigns the updated student as @student' do
           post :update, params: { id: @student, student: @new_student_attrs }
-          expect(assigns(:student).first_name).to
-          eq(@new_student_attrs[:first_name])
+          expect(assigns(:student).first_name)
+          .to eq(@new_student_attrs[:first_name])
         end
 
         it 'redirects to the student view' do
