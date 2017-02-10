@@ -10,12 +10,12 @@ class AddFieldsToStudents < ActiveRecord::Migration[5.0]
     add_column :students, :city,             :string
     add_column :students, :state,            :string
     add_column :students, :zip,              :string
-    add_column :students, :mail_ok           :boolean
+    add_column :students, :mail_ok,          :boolean
     add_column :students, :email,            :string
-    add_column :students, :email_ok          :boolean
+    add_column :students, :email_ok,         :boolean
     add_column :students, :cell_phone,       :string
-    add_column :students, :cell_ok           :boolean
-    add_column :students, :cell_lvm_ok       :boolean
+    add_column :students, :cell_ok,          :boolean
+    add_column :students, :cell_lvm_ok,      :boolean
     add_column :students, :home_phone,       :string
     add_column :students, :home_ok,          :boolean
     add_column :students, :home_lvm_ok,      :boolean
