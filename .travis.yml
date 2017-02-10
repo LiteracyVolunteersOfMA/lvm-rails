@@ -3,6 +3,9 @@ language: ruby
 rvm:
 - 2.4.0
 
+before_install:
+- echo -e "machine github.ccs.neu.edu\n  login $GH_TOKEN" >> ~/.netrc
+
 before_script:
   rake db:migrate
 
