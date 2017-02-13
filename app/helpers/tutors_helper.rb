@@ -1,4 +1,5 @@
 module TutorsHelper
+  # rubocop:disable Style/WordArray, MethodLength
   def native_language
     [
       ['English', 'English'],
@@ -36,11 +37,15 @@ module TutorsHelper
     [
       ['US High School Diploma', 'US High School Diploma'],
       ['GED', 'GED'],
-      ['Equivalent of HS Diploma in another country', 'Equivalent of HS Diploma in another country'],
-      ['Adult Diploma/External Diploma Program', 'Adult Diploma/External Diploma Program'],
+      ['Equivalent of HS Diploma in another country',
+       'Equivalent of HS Diploma in another country'],
+      ['Adult Diploma/External Diploma Program',
+       'Adult Diploma/External Diploma Program'],
       ['Some College', 'Some College'],
-      ['Associate\'s Degree (2 yrs beyond HS)', 'Associate\'s Degree (2 yrs beyond HS)'],
-      ['Bachelor\'s Degree (4 yrs beyond HS)', 'Bachelor\'s Degree (4 yrs beyond HS)'],
+      ['Associate\'s Degree (2 yrs beyond HS)',
+       'Associate\'s Degree (2 yrs beyond HS)'],
+      ['Bachelor\'s Degree (4 yrs beyond HS)',
+       'Bachelor\'s Degree (4 yrs beyond HS)'],
       ['Masters Degree', 'Masters Degree'],
       ['Doctorate (Ed.D, Ph.D)', 'Doctorate (Ed.D, Ph.D)'],
       ['Professional Degree (MD, JD)', 'Professional Degree (MD, JD)']
