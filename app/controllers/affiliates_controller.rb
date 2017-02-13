@@ -24,6 +24,7 @@ class AffiliatesController < ApplicationController
 
   # GET /affiliates/1/edit
   def edit
+
   end
 
   # POST /affiliates
