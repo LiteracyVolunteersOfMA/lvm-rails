@@ -8,11 +8,13 @@ end
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coveralls', require: false
 gem 'devise', '~> 4.2'
+gem 'faker', '~> 1.7'
 gem 'jquery-rails', '~> 4.2'
 gem 'rails', '~> 5.0'
 gem 'rainbow', '< 2.2.1'
 gem 'rubocop', '~> 0.47', require: false
 gem 'sass-rails', '~> 5.0'
+gem 'seed-fu', '~> 2.3'
 gem 'simple_form'
 gem 'turbolinks', '~> 5.0'
 gem 'uglifier', '~> 3.0'
@@ -32,9 +34,7 @@ end
 
 group :development, :test do
   gem 'awesome_print', '~> 1.7'
-  gem 'faker', '~> 1.7'
   gem 'pry', '~> 0.10'
-  gem 'seed-fu', '~> 2.3'
   gem 'sqlite3', '~> 1.3'
 end
 
