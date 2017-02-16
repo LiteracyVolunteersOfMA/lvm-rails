@@ -1,5 +1,4 @@
 module TutorsHelper
-  extend self
   # rubocop:disable Style/WordArray, MethodLength
   def native_language
     [
@@ -99,4 +98,10 @@ module TutorsHelper
       ['Boston', 'Boston']
     ]
   end
+
+  module_function :affiliate,
+                  :education,
+                  :employment,
+                  :referral,
+                  :native_language
 end

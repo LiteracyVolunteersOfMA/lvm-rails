@@ -1,5 +1,4 @@
 module ApplicationHelper
-  extend self
   # rubocop:disable Style/WordArray, MethodLength
   # Generic helper collections
   def us_states
@@ -71,4 +70,7 @@ module ApplicationHelper
       ['White', 'White']
     ]
   end
+
+  module_function :race,
+                  :us_states
 end
