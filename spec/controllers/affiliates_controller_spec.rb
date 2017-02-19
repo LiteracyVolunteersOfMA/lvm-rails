@@ -101,47 +101,47 @@ RSpec.describe AffiliatesController, type: :controller do
       end
     end
 
-    #   describe "PUT #update" do
-    #     context "with valid params" do
-    #       let(:new_attributes) {
-    #         skip("Add a hash of attributes valid for your model")
-    #       }
-    #
-    #       it "updates the requested affiliate" do
-    #         affiliate = Affiliate.create! valid_attributes
-    #         put :update, params: {id: affiliate.to_param, affiliate: new_attributes}, session: valid_session
-    #         affiliate.reload
-    #         skip("Add assertions for updated state")
-    #       end
-    #
-    #       it "assigns the requested affiliate as @affiliate" do
-    #         affiliate = Affiliate.create! valid_attributes
-    #         put :update, params: {id: affiliate.to_param, affiliate: valid_attributes}, session: valid_session
-    #         expect(assigns(:affiliate)).to eq(affiliate)
-    #       end
-    #
-    #       it "redirects to the affiliate" do
-    #         affiliate = Affiliate.create! valid_attributes
-    #         put :update, params: {id: affiliate.to_param, affiliate: valid_attributes}, session: valid_session
-    #         expect(response).to redirect_to(affiliate)
-    #       end
-    #     end
-    #
-    #     context "with invalid params" do
-    #       it "assigns the affiliate as @affiliate" do
-    #         affiliate = Affiliate.create! valid_attributes
-    #         put :update, params: {id: affiliate.to_param, affiliate: invalid_attributes}, session: valid_session
-    #         expect(assigns(:affiliate)).to eq(affiliate)
-    #       end
-    #
-    #       it "re-renders the 'edit' template" do
-    #         affiliate = Affiliate.create! valid_attributes
-    #         put :update, params: {id: affiliate.to_param, affiliate: invalid_attributes}, session: valid_session
-    #         expect(response).to render_template("edit")
-    #       end
-    #     end
-    #   end
-    #
+    describe 'PUT #update' do
+      before do
+        @affiliate = create(:affiliate)
+        @new_affiliate_attrs = attributes_for(:affiliate)
+      end
+
+      context 'with valid attributes' do
+        it 'saves the new affiliate in the database' do
+          post :update, params: { id: @affiliate, affiliate: @new_affiliate_attrs }
+          expect(Affiliate.last.name).to eq(@new_affiliate_attrs[:name])
+        end
+
+        it 'assigns the updated affiliate as @affiliate' do
+          post :update, params: { id: @affiliate, affiliate: @new_affiliate_attrs }
+          expect(assigns(:affiliate).name)
+              .to eq(@new_affiliate_attrs[:name])
+        end
+
+        it 'redirects to the affiliate view' do
+          post :update, params: { id: @affiliate, affiliate: @new_affiliate_attrs }
+          expect(response).to redirect_to(@affiliate)
+        end
+      end
+
+      context 'with invalid attributes' do
+        before do
+          allow_any_instance_of(Affiliate).to receive(:update) { false }
+        end
+
+        it 'assigns the existing affiliate as @affiliate' do
+          post :update, params: { id: @affiliate, affiliate: @new_affiliate_attrs }
+          expect(assigns(:affiliate)).to eq(@affiliate)
+        end
+
+        it 're-renders the :edit view' do
+          post :update, params: { id: @affiliate, affiliate: @new_affiliate_attrs }
+          expect(response).to render_template :edit
+        end
+      end
+    end
+
     #   describe "DELETE #destroy" do
     #     it "destroys the requested affiliate" do
     #       affiliate = Affiliate.create! valid_attributes
