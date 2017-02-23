@@ -147,22 +147,18 @@ RSpec.describe AffiliatesController, type: :controller do
       end
     end
 
-    #   describe "DELETE #destroy" do
-    #     it "destroys the requested affiliate" do
-    #       affiliate = Affiliate.create! valid_attributes
-    #       expect {
-    #         delete :destroy, params: {id: affiliate.to_param},
-    #                                   session: valid_session
-    #       }.to change(Affiliate, :count).by(-1)
-    #     end
-    #
-    #     it "redirects to the affiliates list" do
-    #       affiliate = Affiliate.create! valid_attributes
-    #       delete :destroy, params: {id: affiliate.to_param},
-    #                                 session: valid_session
-    #       expect(response).to redirect_to(affiliates_url)
-    #     end
-    #   end
-    #
+    describe 'DELETE #destroy' do
+      it 'destroys the affiliate' do
+        affiliate = create(:affiliate)
+        expect { delete :destroy, params: { id: affiliate } }
+            .to change(Affiliate, :count).by(-1)
+      end
+
+      it 'redirects to the :index view' do
+        affiliate = create(:affiliate)
+        delete :destroy, params: { id: affiliate }
+        expect(response).to redirect_to affiliates_path
+      end
+    end
   end
 end
