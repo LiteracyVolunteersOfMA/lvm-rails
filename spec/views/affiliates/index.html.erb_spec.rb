@@ -2,14 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'affiliates/index', type: :view do
   before(:each) do
-    assign(:affiliates, [
-        Affiliate.create!(
-            name: 'Name',
-             address: 'Address',
-             phone_number: 'PhoneNumber',
-             email: 'Email@1.com',
-             website: 'Website',
-             twitter: 'Twitter'
+    assign(:affiliates, [Affiliate.create!(
+                           name: 'Name',
+                           address: 'Address',
+                           phone_number: 'PhoneNumber',
+                           email: 'Email@1.com',
+                           website: 'Website',
+                           twitter: 'Twitter'
         ),
         Affiliate.create!(
             name: 'Name',
@@ -19,7 +18,7 @@ RSpec.describe 'affiliates/index', type: :view do
              website: 'Website',
              twitter: 'Twitter'
         )
-    ])
+                         ])
   end
 
   it 'renders a list of affiliates' do

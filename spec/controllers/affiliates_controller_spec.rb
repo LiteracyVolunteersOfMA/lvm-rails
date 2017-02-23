@@ -135,7 +135,7 @@ RSpec.describe AffiliatesController, type: :controller do
 
         it 'assigns the existing affiliate as @affiliate' do
           post :update, params: { id: @affiliate,
-                                 affiliate: @new_affiliate_attrs }
+                                  affiliate: @new_affiliate_attrs }
           expect(assigns(:affiliate)).to eq(@affiliate)
         end
 
