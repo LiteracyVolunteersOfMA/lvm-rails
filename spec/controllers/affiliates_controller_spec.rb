@@ -151,7 +151,7 @@ RSpec.describe AffiliatesController, type: :controller do
       it 'destroys the affiliate' do
         affiliate = create(:affiliate)
         expect { delete :destroy, params: { id: affiliate } }
-            .to change(Affiliate, :count).by(-1)
+          .to change(Affiliate, :count).by(-1)
       end
 
       it 'redirects to the :index view' do

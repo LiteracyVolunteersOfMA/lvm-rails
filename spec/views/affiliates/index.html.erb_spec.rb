@@ -9,16 +9,15 @@ RSpec.describe 'affiliates/index', type: :view do
                            email: 'Email@1.com',
                            website: 'Website',
                            twitter: 'Twitter'
-        ),
+                                          ),
         Affiliate.create!(
-            name: 'Name',
-             address: 'Address',
-             phone_number: 'PhoneNumber',
-             email: 'Email@2.com',
-             website: 'Website',
-             twitter: 'Twitter'
-        )
-                         ])
+          name: 'Name',
+          address: 'Address',
+          phone_number: 'PhoneNumber',
+          email: 'Email@2.com',
+          website: 'Website',
+          twitter: 'Twitter'
+        )])
   end
 
   it 'renders a list of affiliates' do
