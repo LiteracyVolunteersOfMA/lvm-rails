@@ -9,12 +9,11 @@ class AffiliatesController < ApplicationController
   # GET /affiliates/1
   # TODO: should all coordinators, students, and tutors within this affiliate
   def show
-    # @affiliate = Affiliate.find(params[:id])
+    @affiliate = Affiliate.find(params[:id])
     # :set_affiliate
     # @coordinators = Enrollment.where(affiliate_id: params[:id], end: nil).take
     # @students = Enrollment.where(affiliate_id: params[:id], end: nil).take
     # @tutors = Enrollment.where(affiliate_id: params[:id], end: nil).take
-
   end
 
   # GET /affiliates/new
@@ -24,7 +23,7 @@ class AffiliatesController < ApplicationController
 
   # GET /affiliates/1/edit
   def edit
-
+    @affiliate = Affiliate.find(params[:id])
   end
 
   # POST /affiliates
@@ -54,6 +53,7 @@ class AffiliatesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_affiliate
     @affiliate = Affiliate.find(params[:id])
@@ -61,11 +61,10 @@ class AffiliatesController < ApplicationController
 
   def affiliate_params
     params.require(:affiliate).permit(
-        :name,
+          :name,
         :address,
         :phone_number,
         :email,
-        :website,
-        :twitter)
+        :website, :twitter)
   end
 end

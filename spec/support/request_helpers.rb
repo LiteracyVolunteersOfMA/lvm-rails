@@ -15,8 +15,8 @@ module RequestHelpers
   end
 
   def reject_auth(user)
-    allow(request.env['warden']).to receive(:authenticate!)
-                                        .and_throw(:warden, scope: user)
+    allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden,
+                                                                      scope: user)
     allow(request).to receive(:current_user).and_return(nil)
   end
 end

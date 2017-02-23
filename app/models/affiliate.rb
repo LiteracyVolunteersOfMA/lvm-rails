@@ -1,5 +1,4 @@
 class Affiliate < ApplicationRecord
-
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :coordinators
@@ -12,7 +11,6 @@ class Affiliate < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: { maximum: 100 }
-  validates :address, presence: true, length: { maximum: 200}
-  validates :phone_number, presence: true, length: { maximum: 11}
-
+  validates :address, presence: true, length: { maximum: 200 }
+  validates :phone_number, presence: true, length: { maximum: 11 }
 end
