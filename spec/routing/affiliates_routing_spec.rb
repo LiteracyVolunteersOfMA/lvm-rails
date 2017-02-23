@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AffiliatesController, type: :routing do
   describe 'routing' do
     it 'routes to #index' do
-      expect(:get => '/affiliates').to route_to('affiliates#index')
+      expect(get: '/affiliates').to route_to('affiliates#index')
     end
 
     it 'routes to #new' do
@@ -15,7 +15,7 @@ RSpec.describe AffiliatesController, type: :routing do
     end
 
     it 'routes to #edit' do
-      expect(get: '/affiliates/1/edit').to route_to('affiliates#edit', id: "1")
+      expect(get: '/affiliates/1/edit').to route_to('affiliates#edit', id: '1')
     end
 
     it 'routes to #create' do
@@ -33,6 +33,5 @@ RSpec.describe AffiliatesController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/affiliates/1').to route_to('affiliates#destroy', id: '1')
     end
-
   end
 end

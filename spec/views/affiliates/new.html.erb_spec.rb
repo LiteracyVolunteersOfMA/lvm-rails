@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'affiliates/new', type: :view do
   before(:each) do
     assign(:affiliate, Affiliate.new(
-        { name: 'xyf',
-          address: '21 Forsyth St.',
-          phone_number: '603-------',
-          email: 'xyf@gmail.com',
-          website: 'affiliate.com',
-          twitter: 'affiliate@twitter.com'}
+        name: 'xyf',
+        address: '21 Forsyth St.',
+        phone_number: '603-------',
+        email: 'xyf@gmail.com',
+        website: 'affiliate.com',
+        twitter: 'affiliate@twitter.com'
     ))
   end
 

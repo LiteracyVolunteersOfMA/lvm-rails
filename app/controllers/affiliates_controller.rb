@@ -60,11 +60,7 @@ class AffiliatesController < ApplicationController
   end
 
   def affiliate_params
-    params.require(:affiliate).permit(
-          :name,
-        :address,
-        :phone_number,
-        :email,
-        :website, :twitter)
+    params.require(:affiliate).permit(:name, :address, :phone_number,
+                                      :email, :website, :twitter)
   end
 end

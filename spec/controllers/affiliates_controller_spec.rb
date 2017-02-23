@@ -62,7 +62,7 @@ RSpec.describe AffiliatesController, type: :controller do
       end
     end
 
-    describe "POST #create" do
+    describe 'POST #create' do
       before do
         @affiliate_attrs = attributes_for(:affiliate)
       end
@@ -118,7 +118,7 @@ RSpec.describe AffiliatesController, type: :controller do
           post :update, params: { id: @affiliate,
                                   affiliate: @new_affiliate_attrs }
           expect(assigns(:affiliate).name)
-              .to eq(@new_affiliate_attrs[:name])
+            .to eq(@new_affiliate_attrs[:name])
         end
 
         it 'redirects to the affiliate view' do
@@ -134,8 +134,8 @@ RSpec.describe AffiliatesController, type: :controller do
         end
 
         it 'assigns the existing affiliate as @affiliate' do
-          post :update, params: {id: @affiliate,
-                                 affiliate: @new_affiliate_attrs}
+          post :update, params: { id: @affiliate,
+                                 affiliate: @new_affiliate_attrs }
           expect(assigns(:affiliate)).to eq(@affiliate)
         end
 
@@ -166,4 +166,3 @@ RSpec.describe AffiliatesController, type: :controller do
     #
   end
 end
-
