@@ -21,6 +21,7 @@ gem 'turbolinks', '~> 5.0'
 gem 'uglifier', '~> 3.0'
 
 group :test do
+<<<<<<< HEAD
   gem 'capybara', '~> 2.12.1'
   gem 'database_cleaner', '~> 1.5.3'
   gem 'factory_girl_rails', '~> 4.0'
