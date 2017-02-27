@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'spec_helpr'
+require 'spec_helper'
 
 RSpec.describe 'tutors/show.html.erb', type: :view do
   xdescribe 'populate page and links' do
@@ -84,6 +84,7 @@ RSpec.describe 'tutors/show.html.erb', type: :view do
         current_path.should eq(edit_tutor_path(@students[0]))
         visit edit_tutor_path(@students[1])
         current_path.should eq(edit_tutor_path(@students[1]))
+      end
     end
   end
 end
