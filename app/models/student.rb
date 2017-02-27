@@ -27,8 +27,4 @@ class Student < ApplicationRecord
   def name
     [first_name, last_name].join(' ')
   end
-
-  def digits_only(str)
-    return str.gsub(/\D/, '')
-  end
 end
