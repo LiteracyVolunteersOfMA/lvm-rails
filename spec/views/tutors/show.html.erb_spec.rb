@@ -6,10 +6,10 @@ RSpec.describe 'tutors/show.html.erb', type: :view do
     before do
       @tutor = Tutor.create(
         first_name: 'Viviano', last_name: 'Cantu',
-        email_preferred: 'email@email.com'
-        address1: '200 Huntington St' city: 'Boston', state: 'MA', zip: '02120'
-        home_phone: '1112223333', cell_phone: '4445556666'
-        affiliate: 'Affiliate1', gender: 'male', native_language: 'English'
+        email_preferred: 'email@email.com',
+        address1: '200 Huntington St', city: 'Boston', state: 'MA',
+        zip: '02120', home_phone: '1112223333', cell_phone: '4445556666',
+        affiliate: 'Affiliate1', gender: 'male', native_language: 'English',
         race: 'white')
       @students = [Student.create(first_name: 'Mike', last_name: 'White'),
                    Student.create(first_name: 'Alex', last_name: 'Jones')]
