@@ -1,52 +1,104 @@
-<p>
-  <strong>Name:</strong>
-  <%= @tutor.first_name %> <%= @tutor.last_name %>
-</p>
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-md-offset-3">
 
-<p>
-  <strong>Email:</strong>
-  <%= @tutor.email %>
-</p>
 
-<p>
-  <strong>Coordinator:</strong>
-  <% if !@coordinator.nil? %>
-    <%= @coordinator.name %>
-  <% else %>
-    No Coordinator
-  <% end %>
-</p>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= link_to tutors_path do %>
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          <span class="h4">Back</span>
+        <% end %>
+      </div>
+      <div class="col-xs-6 text-right">
+        <span class="h4"><%= @tutor.first_name %> <%= @tutor.last_name %> -
+        <%= @tutor.affiliate %></span>
+      </div>
+    </div>
+    <hr>
 
-<p>
-  <strong>Students:</strong>
-  <% if !@students.empty? %>
-    <table>
-      <% @students.each do |s| %>
-        <tr>
-          <td>
-            <%= s.name %>
-          </td>
-        </tr>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Name:</strong><br>
+        <%= @tutor.first_name %> <%= @tutor.last_name %>
+      </div>
+
+      <div class="col-md-3">
+        <strong>Gender:</strong><br>
+        <%= @tutor.gender %>
+      </div>
+
+      <div class="col-md-6">
+        <strong>Email:</strong><br>
+        preferred: <%= @tutor.email_preferred %><br>
+        other: <%= @tutor.email_other %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <address class="col-md-6">
+        <strong>Address:</strong><br>
+        <%= @tutor.address1 %>, <%= @tutor.address2 %><br>
+        <%= @tutor.city %>,  <%= @tutor.state %>   <%= @tutor.zip %><br>
+      </address>
+      <address class="col-md-6">
+        <strong>Phone:</strong><br>
+        home: <%= @tutor.home_phone %><br>
+        cell: <%= @tutor.cell_phone %><br>
+    </div>
+
+    <p>
+      <strong>Coordinator:</strong>
+      <% if !@coordinator.nil? %>
+        <%= @coordinator.name %>
+      <% else %>
+        No Coordinator
       <% end %>
-    </table>
-  <% else %>
-    No Students
-  <% end %>
-</p>
+    </p>
 
-<p>
-  <strong>Add Student:</strong>
-  <% if !student_options.empty? %>
-    <%= form_tag('add_student', method: 'put') do %>
-      <%= select_tag(:student_id, options_for_select(student_options)) %>
-      <%= submit_tag('Add Student') %>
-      <%= hidden_field_tag(:tutor_id, @tutor.id) %>
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <% end %>
-  <% else %>
-    No unmatched students
-  <% end %>
-</p>
+    <hr>
+    <div class="row">
+      <div class="table-responsive col-md-12">
+        <strong>Students:</strong>
+        <table class="table table-striped">
+           <thead>
+             <tr>
+              <th>Name</th>
+              <th>Email</th>
+             <tr>
+           </thead>
+           <tbody>
+             <% if !@students.empty? %>
+                 <% @students.each do |s| %>
+                   <tr>
+                     <td> <%= s.name %> </td>
+                     <td> <%= s.email %> </td>
+                   </tr>
+                 <% end %>
+             <% else %>
+               No Students
+             <% end %>
+          </tbody>
+        <table>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_tutor_path(@tutor) %> |
-<%= link_to 'Back', tutors_path %>
+
+    <p>
+      <strong>Add Student:</strong>
+      <% if !student_options.empty? %>
+        <%= form_tag('add_student', method: 'put') do %>
+          <%= select_tag(:student_id, options_for_select(student_options)) %>
+          <%= submit_tag('Add Student') %>
+          <%= hidden_field_tag(:tutor_id, @tutor.id) %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <% end %>
+      <% else %>
+        No unmatched students
+      <% end %>
+    </p>
+
+    <%= link_to 'Edit', edit_tutor_path(@tutor) %> |
+    <%= link_to 'Back', tutors_path %>
+
+  </div>
+</div>
