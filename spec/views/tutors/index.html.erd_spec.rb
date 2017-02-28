@@ -24,10 +24,10 @@ RSpec.describe 'tutors/index', type: :view do
                           cell_phone: '602-000-0000',
                           email_preferred: 'Email@1.com',
                           email_other: 'Email@2.com',
-                          native_language: 'l',
+                          native_language: 'English',
                           orientation: 'o',
-                          training: 't',
-                          training_type: 'tp',
+                          training: 'td',
+                          training_type: 'ty',
                           referral: 'r',
                           education: 'e',
                           employment_status: 'es',
@@ -38,20 +38,12 @@ RSpec.describe 'tutors/index', type: :view do
     render
     expect(rendered).to match /Y/
     expect(rendered).to match /X/
-    expect(rendered).to match /male/
-    expect(rendered).to match /1/
     expect(rendered).to match /601-000-0000/
     expect(rendered).to match /602-000-0000/
     expect(rendered).to match /Email@1.com/
-    expect(rendered).to match /Email@2.com/
-    expect(rendered).to match /l/
-    expect(rendered).to match /o/
-    expect(rendered).to match /cob/
-    expect(rendered).to match /t/
-    expect(rendered).to match /tp/
-    expect(rendered).to match /r/
-    expect(rendered).to match /e/
-    expect(rendered).to match /es/
+    expect(rendered).to match /English/
+    expect(rendered).to match /td/
+    expect(rendered).to match /ty/
     expect(rendered).to match /oc/
   end
 end
