@@ -34,7 +34,7 @@ RSpec.describe 'tutors/index', type: :view do
                           occupation: 'oc')])
   end
 
-  it 'renders a list of affiliates' do
+  it 'renders a list of tutors' do
     render
     expect(rendered).to match /Y/
     expect(rendered).to match /X/
