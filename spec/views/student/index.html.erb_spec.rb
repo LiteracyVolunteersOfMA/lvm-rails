@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spec_helper'
 
 RSpec.describe 'students/index.html.erb', type: :view do
   describe 'populate page and links' do
