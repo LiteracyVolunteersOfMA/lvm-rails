@@ -36,14 +36,14 @@ RSpec.describe 'tutors/index', type: :view do
 
   it 'renders a list of tutors' do
     render
-    expect(rendered).to match /Y/
-    expect(rendered).to match /X/
-    expect(rendered).to match /601-000-0000/
-    expect(rendered).to match /602-000-0000/
-    expect(rendered).to match /Email@1.com/
-    expect(rendered).to match /English/
-    expect(rendered).to match /td/
-    expect(rendered).to match /ty/
-    expect(rendered).to match /oc/
+    expect(rendered).to match(/Y/)
+    expect(rendered).to match(/X/)
+    expect(rendered).to match(/601-000-0000/)
+    expect(rendered).to match(/602-000-0000/)
+    expect(rendered).to match(/Email@1.com/)
+    expect(rendered).to match(/English/)
+    expect(rendered).to match(/td/)
+    expect(rendered).to match(/ty/)
+    expect(rendered).to match(/oc/)
   end
 end
