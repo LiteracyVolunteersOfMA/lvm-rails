@@ -41,36 +41,38 @@
     </div>
 
     <div class="row">
+
       <div class="col-md-6">
-        <strong class="col-sm-1">Email:</strong><br>
+        <strong>Email:</strong><br>
         <table>
           <tr>
-            <td class="col-sm-1">preferred:</td>
-            <td ><%= @tutor.email_preferred %></td>
+            <td>preferred:</td>
+            <td class="col-md-6"><%= @tutor.email_preferred %></td>
           </tr>
           <tr>
-            <td class="col-sm-1">other:</td>
-            <td><%= @tutor.email_other %>N/A</td>
+            <td>other:</td>
+            <td class="col-md-6"><%= @tutor.email_other %>N/A</td>
           </tr>
         </table>
       </div>
 
       <div class="col-md-6">
-        <strong class="col-sm-1">Phone:</strong><br>
+        <strong>Phone:</strong><br>
         <table>
           <tr>
-            <td class="col-sm-1">home:</td>
             <td><%= @tutor.home_phone %></td>
+            <td class="col-md-6">home:</td>
           </tr>
           <tr>
-            <td class="col-sm-1">cell:</td>
-            <td><%= @tutor.cell_phone %></td>
+            <td>cell:</td>
+            <td class="col-md-6"><%= @tutor.cell_phone %></td>
           </tr>
           <tr>
-            <td class="col-sm-1">other:</td>
-            <td><%= @tutor.other_phone %></td>
+            <td>other:</td>
+            <td class="col-md-6"><%= @tutor.other_phone %></td>
           </tr>
         </table>
+
       </div>
 
     </div>
