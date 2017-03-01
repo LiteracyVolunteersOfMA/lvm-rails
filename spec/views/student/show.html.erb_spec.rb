@@ -1,7 +1,4 @@
-# spec/views/products/show.html.erb_spec.rb
-
 require 'rails_helper'
-require 'spec_helper'
 
 RSpec.describe 'coordinators/show.html.erb', type: :view do
   describe 'populate page and links' do
