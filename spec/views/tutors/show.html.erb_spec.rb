@@ -18,39 +18,39 @@ RSpec.describe 'tutors/show.html.erb', type: :view do
     end
 
     describe 'presence of tutors' do
-      it 'checks for both coordinators names' do
+      it 'presence of name' do
         expect(rendered).to match(/Viviano Cantu/)
       end
 
-      it 'checks for tutor email' do
+      it 'presence of email' do
         expect(rendered).to match(/email@email.com/)
       end
 
-      it 'checks for tutor address' do
+      it 'presence of address' do
         expect(rendered).to match(/200 Huntington St/)
         expect(rendered).to match(/Boston/)
         expect(rendered).to match(/MA/)
         expect(rendered).to match(/02120/)
       end
 
-      it 'checks for tutor phone numbers' do
+      it 'presence of phone numbers' do
         expect(rendered).to match(/1112223333/)
         expect(rendered).to match(/4445556666/)
       end
 
-      it 'checks for tutor affiliate' do
+      it 'presence of affiliate' do
         expect(rendered).to match(/Affiliate1/)
       end
 
-      it 'checks for tutor gender' do
+      it 'presence of gender' do
         expect(rendered).to match(/male/)
       end
 
-      it 'checks for tutor race' do
+      it 'presence of race' do
         expect(rendered).to match(/White/)
       end
 
-      it 'checks for tutor native language' do
+      it 'presence of native language' do
         expect(rendered).to match(/English/)
       end
     end
@@ -63,24 +63,24 @@ RSpec.describe 'tutors/show.html.erb', type: :view do
     end
 
     describe 'links' do
-      it 'checks for edit and back link' do
+      it 'presence of edit and back link' do
         assert_select 'a[href=?]', edit_tutor_path(@tutor)
         assert_select 'a[href=?]', tutors_path
       end
 
-      it 'checks for student show links' do
+      it 'presence of student show links' do
         assert_select 'a[href=?]', student_show_path(@students[0])
         assert_select 'a[href=?]', student_show_path(@students[1])
       end
     end
 
     describe 'click links' do
-      it 'checks for link path after clicking' do
+      it 'presence of link path after clicking' do
         visit edit_tutor_path(@tutor)
         current_path.should eq(edit_tutor_path(@tutor))
       end
 
-      it 'chekcs for student link path after clicking' do
+      it 'presence of student link path after clicking' do
         visit edit_tutor_path(@students[0])
         current_path.should eq(edit_tutor_path(@students[0]))
         visit edit_tutor_path(@students[1])
