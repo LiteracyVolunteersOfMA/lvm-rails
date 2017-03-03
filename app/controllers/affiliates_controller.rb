@@ -8,7 +8,6 @@ class AffiliatesController < ApplicationController
 
   # GET /affiliates/1
   def show; end
-
   # GET /affiliates/new
   def new
     @affiliate = Affiliate.new
