@@ -7,13 +7,8 @@ class AffiliatesController < ApplicationController
   end
 
   # GET /affiliates/1
-  # TODO: should all coordinators, students, and tutors within this affiliate
   def show
-    @affiliate = Affiliate.find(params[:id])
-    # :set_affiliate
-    # @coordinators = Enrollment.where(affiliate_id: params[:id], end: nil).take
-    # @students = Enrollment.where(affiliate_id: params[:id], end: nil).take
-    # @tutors = Enrollment.where(affiliate_id: params[:id], end: nil).take
+    :set_affiliate
   end
 
   # GET /affiliates/new
@@ -23,7 +18,7 @@ class AffiliatesController < ApplicationController
 
   # GET /affiliates/1/edit
   def edit
-    @affiliate = Affiliate.find(params[:id])
+    :set_affiliate
   end
 
   # POST /affiliates

@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20170308185448) do
     t.index ["student_id"], name: "index_enrollments_on_student_id"
   end
 
+  create_table "exams", force: :cascade do |t|
+    t.string   "score"
+    t.datetime "exam_date"
+    t.string   "subject"
+    t.integer  "student_id"
+    t.integer  "tutor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_exams_on_student_id"
+    t.index ["tutor_id"], name: "index_exams_on_tutor_id"
+  end
+
   create_table "matches", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "tutor_id"
