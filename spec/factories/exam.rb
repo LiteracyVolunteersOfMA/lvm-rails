@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :exam do
-    subject { Faker::Name.name }
-    exam_date { Faker::Address.street_address }
+    subject { Faker::Internet.slug('English') }
+    exam_date { Faker::Date }
     score { Faker::Number }
   end
 end
