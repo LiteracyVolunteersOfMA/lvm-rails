@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170306043954) do
 
+  create_table "affiliate_events", force: :cascade do |t|
+    t.integer  "tutor_id"
+    t.string   "title",      null: false
+    t.date     "date",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tutor_id"], name: "index_affiliate_events_on_tutor_id"
+  end
+
   create_table "affiliates", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -152,8 +161,6 @@ ActiveRecord::Schema.define(version: 20170306043954) do
     t.boolean  "criminal_conviction"
     t.boolean  "release_on_file"
     t.date     "release_sign_date"
-    t.string   "affiliate_event_participation"
-    t.date     "affiliate_date_of_event"
     t.string   "referral_other"
     t.integer  "availability"
     t.integer  "age_preference"

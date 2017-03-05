@@ -1,0 +1,32 @@
+<% if @affiliate_event.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@affiliate_event.errors.count, "error") %> prohibited
+      this tutor from being saved:
+    </h2>
+    <ul>
+      <% @affiliate_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form role="form">
+
+  <div class="row">
+    <%= f.hidden_field :tutor_id, value: @tutor.id %>
+    <div class="col-md-9">
+      <%= f.input :title, required: false, maxlength: 255 %>
+    </div>
+
+    <div class="col-md-3">
+      <%= f.input :date, input_html: { class: 'datepicker' }, placeholder: "YYYY-MM-DD", required: false %>
+    </div>
+  </div>
+
+  <%= f.button :submit %>
+
+</form>
+
+<script>$('.datepicker').datepicker({ 'dateFormat': 'yy-mm-dd' });</script>
