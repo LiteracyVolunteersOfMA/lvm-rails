@@ -44,7 +44,7 @@ class ExamsController < ApplicationController
   # DELETE /exams/1
   def destroy
     @exam.destroy
-    redirect_to exams_url, notice: 'Exam was successfully destroyed.'
+    redirect_to exams_url, notice: 'Exam was successfully deleted.'
   end
 
   private
