@@ -3,7 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :score %>
-    <%= f.input :exam_date %>
+    <%= f.input :exam_date, input_html: { class: 'datepicker' }, placeholder: "YYYY-MM-DD", as: :string, required:
+        false %>
     <%= f.input :subject %>
   </div>
 
@@ -11,3 +12,5 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>$('.datepicker').datepicker({ 'dateFormat': 'yy-mm-dd' });</script>

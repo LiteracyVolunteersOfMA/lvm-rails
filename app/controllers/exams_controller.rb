@@ -8,7 +8,7 @@ class ExamsController < ApplicationController
 
   # GET /exams/1
   def show
-    :set_exam
+    # :set_exam
   end
 
   # GET /exams/new
@@ -18,7 +18,7 @@ class ExamsController < ApplicationController
 
   # GET /exams/1/edit
   def edit
-    :set_exam
+    # :set_exam
   end
 
   # POST /exams
@@ -49,12 +49,10 @@ class ExamsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_exam
     @exam = Exam.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def exam_params
     params.require(:exam).permit(:score, :exam_date, :subject)
   end
