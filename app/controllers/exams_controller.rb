@@ -7,9 +7,7 @@ class ExamsController < ApplicationController
   end
 
   # GET /exams/1
-  def show
-    # :set_exam
-  end
+  def show; end
 
   # GET /exams/new
   def new
@@ -17,9 +15,7 @@ class ExamsController < ApplicationController
   end
 
   # GET /exams/1/edit
-  def edit
-    # :set_exam
-  end
+  def edit; end
 
   # POST /exams
   def create
