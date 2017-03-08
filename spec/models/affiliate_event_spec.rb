@@ -20,9 +20,9 @@ RSpec.describe AffiliateEvent, type: :model do
       end
     end
 
-    describe 'tutor_id' do
+    describe 'tutor' do
       it 'validates presence' do
-        should validate_presence_of(:tutor_id)
+        should validate_presence_of(:tutor)
       end
     end
   end
