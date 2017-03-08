@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Tutor, type: :model do
   describe 'associations' do
+    it 'should have many affiliate_events' do
+      should have_many(:affiliate_events)
+    end
+
     it 'should have many matches' do
       should have_many(:matches)
     end
