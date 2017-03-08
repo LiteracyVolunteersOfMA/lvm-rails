@@ -1,4 +1,6 @@
 class AffiliateEventsController < ApplicationController
+  before_action :set_affiliate_event, only: [:edit, :update, :destroy]
+
   def new
     @affiliate_event = AffiliateEvent.new
     @tutor = Tutor.find(params[:tutor])
@@ -16,13 +18,10 @@ class AffiliateEventsController < ApplicationController
   end
 
   def edit
-    @affiliate_event = AffiliateEvent.find(params[:id])
     @tutor = Tutor.find(@affiliate_event.tutor_id)
   end
 
   def update
-    @affiliate_event = AffiliateEvent.find(params[:id])
-
     if @affiliate_event.update(affiliate_event_params)
       redirect_to tutor_path(affiliate_event_params[:tutor_id])
     else
@@ -32,10 +31,8 @@ class AffiliateEventsController < ApplicationController
   end
 
   def destroy
-    @affiliate_event = AffiliateEvent.find(params[:id])
-    @affiliate_event.destroy
-
     @tutor = Tutor.find(@affiliate_event.tutor_id)
+    @affiliate_event.destroy
 
     redirect_to tutor_path(@tutor)
   end
@@ -48,5 +45,9 @@ class AffiliateEventsController < ApplicationController
       :date,
       :tutor_id
     )
+  end
+
+  def set_affiliate_event
+    @affiliate_event = AffiliateEvent.find(params[:id])
   end
 end
