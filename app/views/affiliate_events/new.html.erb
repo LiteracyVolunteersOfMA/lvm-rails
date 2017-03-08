@@ -20,7 +20,7 @@
 
   <hr>
 
-  <%= simple_form_for :affiliate_event, url: affiliate_events_path(), method: :post do |f| %>
+  <%= simple_form_for :affiliate_event, url: affiliate_events_path, method: :post do |f| %>
     <%= render partial: 'form', locals: {f: f} %>
   <% end %>
 
