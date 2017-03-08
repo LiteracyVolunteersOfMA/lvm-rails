@@ -5,8 +5,6 @@ class Tutor < ApplicationRecord
   VALID_SMARTT_REGEX = /\A[0-9]{4}-[0-9]{6}\z/
   LAST_NAME_ID_REGEX = /\A[0-9]{1,5}\z/
 
-  has_many :affiliate_events, -> { order 'date asc' }
-
   has_many :matches
   has_many :students, through: :matches
 
@@ -14,6 +12,7 @@ class Tutor < ApplicationRecord
   has_many :coordinators, through: :volunteer_jobs
 
   has_many :affiliates
+  has_many :affiliate_events, -> { order 'date asc' }
 
   validates :address1,                presence: true
   validates :address2,                presence: true
