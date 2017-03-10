@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :exams
   devise_for :users
   root 'welcome#index'
 
