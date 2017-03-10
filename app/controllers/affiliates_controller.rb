@@ -7,9 +7,7 @@ class AffiliatesController < ApplicationController
   end
 
   # GET /affiliates/1
-  def show
-    :set_affiliate
-  end
+  def show; end
 
   # GET /affiliates/new
   def new
@@ -17,9 +15,7 @@ class AffiliatesController < ApplicationController
   end
 
   # GET /affiliates/1/edit
-  def edit
-    :set_affiliate
-  end
+  def edit; end
 
   # POST /affiliates
   def create
