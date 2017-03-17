@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "TutoringSessionController", type: :controller do
+RSpec.describe 'TutoringSessionController', type: :controller do
   let(:valid_session) { {} }
   xdescribe 'endpoints' do
     before do
@@ -60,17 +60,20 @@ RSpec.describe "TutoringSessionController", type: :controller do
     xdescribe 'POST #create' do
       context 'with valid attributes' do
         it 'saves the new tutoring_session to the database' do
-          post :create, params: { tutoring_session: @tutoring_session_attrs }, session: valid_session
+          post :create, params: { tutoring_session: @tutoring_session_attrs },
+                        session: valid_session
           expect(assigns(:tutoring_session)).to be_persisted
         end
 
         it 'assigns newly created tutoring_session as @tutoring_session' do
-          post :create, params: { tutoring_session: @tutoring_session_attrs }, session: valid_session
+          post :create, params: { tutoring_session: @tutoring_session_attrs },
+                        session: valid_session
           expect(assigns(:tutoring_session)).to be_a(TutoringSession)
         end
 
         it 'redirects to the newly created tutoring_session view' do
-          post :create, params: { tutoring_session: @tutoring_session_attrs }, session: valid_session
+          post :create, params: { tutoring_session: @tutoring_session_attrs },
+                        session: valid_session
           expect(response).to redirect_to(TutoringSession.last)
         end
       end
@@ -80,13 +83,16 @@ RSpec.describe "TutoringSessionController", type: :controller do
           allow_any_instance_of(TutoringSession).to receive(:save) { false }
         end
 
-        it 'assigned a newly created but unsaved tutoring_session as @tutoring_session' do
-          post :create, params: { tutoring_session: @tutoring_session_attrs }, session: valid_session
+        it 'assigned a newly created but unsaved tutoring_session
+            as @tutoring_session' do
+          post :create, params: { tutoring_session: @tutoring_session_attrs },
+                        session: valid_session
           expect(assigns(:tutoring_session)).to be_a_new(TutoringSession)
         end
 
         it 're-renders the new tutoring_session view' do
-          post :create, params: { tutoring_session: @tutoring_session_attrs }, session: valid_session
+          post :create, params: { tutoring_session: @tutoring_session_attrs },
+                        session: valid_session
           expect(response).to render_template :new
         end
       end

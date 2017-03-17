@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Tutoring_Session", type: :model do
+RSpec.describe 'Tutoring_Session', type: :model do
   xdescribe 'associations' do
     it 'should belong to a student' do
       should belong_to(:student)
