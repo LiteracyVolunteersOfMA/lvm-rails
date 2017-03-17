@@ -13,7 +13,7 @@ class Coordinator < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :dob, presence: true
+  validates :date_of_birth, presence: true
   validates :phone_number, presence: true
   validates :name, presence: true, length: { maximum: 50 }
   validates :phone_number, format: { with: VALID_PHONE_REGEX }

@@ -51,7 +51,7 @@ class CoordinatorsController < ApplicationController
       :name,
       :email,
       :phone_number,
-      :dob
+      :date_of_birth
     )
   end
 
