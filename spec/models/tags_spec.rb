@@ -10,5 +10,15 @@ RSpec.describe Tag, type: :model do
       should have_many(:tutors).through(:taggings)
       should have_many(:students).through(:taggings)
     end
+
+    it 'should destroy taggings upon deletion' do
+      should have_many(:taggings).dependent(:destroy)
+    end
+  end
+
+  describe 'validations' do
+    it 'should validate the uniqueness of name' do
+      should validate_uniqueness_of(:name)
+    end
   end
 end

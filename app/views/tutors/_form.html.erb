@@ -365,7 +365,7 @@
   <% end %>
 
   <hr>
-  
+
   <div class="row">
     <div class="col-md-12">
       <label class="control-label select optional" for="tutor_all_tags">Tags</label>
@@ -381,21 +381,6 @@
 
   <hr>
   
-  <div class="row">
-    <div class="col-md-12">
-      <label class="control-label select optional" for="tutor_all_tags">Tags</label>
-      <p class="help-block">Select tags from the list or create a new tag by typing in a word or phrase and then hitting the comma key.</p>
-      <%= f.input :all_tags,
-                  label: false,
-                  as: :select,
-                  collection: Tag.order(:name).map{ |i| [i.name, i.name]},
-                  input_html: {multiple: true},
-                  required: false %>
-    </div>
-  </div>
-
-  <hr>
-
   <%= f.button :submit %>
 
 </form>

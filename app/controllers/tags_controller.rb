@@ -6,26 +6,32 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tagged = Tagging.where(tag_id: @tag.id).map do |tagging|
-      if !tagging.tutor_id.nil?
-        Tutor.find(tagging.tutor_id)
-      else
-        Student.find(tagging.student_id)
-      end
+    @tagged_students = Tagging.where(tag_id: @tag.id, tutor_id: nil).map do |t|
+      Student.find(t.student_id)
+    end
+
+    @tagged_tutors = Tagging.where(tag_id: @tag.id, student_id: nil).map do |t|
+      Tutor.find(t.tutor_id)
+    end
+
+    respond_to do |format|
+      format.js
     end
   end
 
-  def new
-    @tag = Tag.new
+  def edit
+    respond_to do |format|
+      format.js
+    end
   end
-
-  def edit; end
 
   def update
     if @tag.update(tag_params)
-      redirect_to @tag, notice: 'Tag was successfully updated.'
+      redirect_to tags_path, notice: 'Tag was successfully updated.'
     else
-      render :edit
+      redirect_to tags_path,
+                  alert: 'Save failed. Another tag with the same name
+                          already exists.'
     end
   end
 
@@ -34,9 +40,20 @@ class TagsController < ApplicationController
     redirect_to tags_url, notice: 'Tag was successfully deleted.'
   end
 
+  # rubocop:disable MethodLength
   def create
-    @tag = Tag.create(tag_params)
-    render json: @tag
+    @tag = Tag.new(tag_params)
+
+    if @tag.save
+      respond_to do |format|
+        format.html { redirect_to(tags_path) }
+        format.json { render json: @tag }
+      end
+    else
+      redirect_to tags_path,
+                  alert: 'Creation failed. Another tag with the same name
+                          already exists.'
+    end
   end
 
   private
