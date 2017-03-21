@@ -21,4 +21,13 @@ RSpec.describe Tag, type: :model do
       should validate_uniqueness_of(:name)
     end
   end
+
+  describe '#count' do
+    it 'should return a count of items tagged with the tag' do
+      @tag = create(:tag)
+      expect(@tag.count).to eq 0
+      Tagging.create(tag_id: @tag.id)
+      expect(@tag.count).to eq 1
+    end
+  end
 end
