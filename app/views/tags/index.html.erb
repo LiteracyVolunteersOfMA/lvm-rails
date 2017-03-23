@@ -75,8 +75,30 @@
     </div>
   </div>
   <script>
+    // Because turbolinks gets the page from the cache instead of making another
+    // GET request, functionality of DataTables and bootstrap's modal are broken.
+    // DataTables thinks it needs to recreate the table, causing a duplicate table
+    // to be created and the modal appears on the screen but does not repsond to
+    // the close buttons. The solution is when reading from the turbolinks cache
+    //  1) destroy the old DataTables table
+    //  2) manually remove the modal and supporting elements
     $(document).ready(function(){
-      $('#tagTable').DataTable();
+      var tagTable;
+
+      document.addEventListener("turbolinks:load", function() {
+        tagTable = $('#tagTable').DataTable();
+      });
+
+      document.addEventListener("turbolinks:before-cache", function() {
+        if ($('#tagTable_wrapper').length == 1)
+          tagTable.destroy();
+
+        $('#view-taggings').removeClass('in');
+        $('body').removeClass('modal-open');
+        $('body').css('padding-right', '');
+        $('.modal-backdrop').remove();
+        $('#view-taggings').hide();
+      });
     });
   </script>
 <% else %>
