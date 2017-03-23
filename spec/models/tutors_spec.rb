@@ -230,10 +230,6 @@ RSpec.describe Tutor, type: :model do
     end
 
     describe 'smartt_id' do
-      it 'validates presence' do
-        should validate_presence_of(:smartt_id)
-      end
-
       it 'validates format' do
         should allow_value('0000-000000').for(:smartt_id)
         should_not allow_value('0000-00000').for(:smartt_id)
