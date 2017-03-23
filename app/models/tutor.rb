@@ -92,26 +92,17 @@ class Tutor < ApplicationRecord
     tags.map(&:name)
   end
 
-  # rubocop:disable MethodLength
+  # rubocop:disable CyclomaticComplexity, PerceivedComplexity
   def status_class_indicator
-    active_status = ['Active']
-    info_status = ['Waiting for re-match', 'Waiting for 1st match', 'On hold']
-    warning_status = [
-      'Declined match',
-      'Unable to contact',
-      'Cannot match',
-      'Moved'
-    ]
-    danger_status = [
-      'Exited',
-      'No show to appointment',
-      'Dropped out of training'
-    ]
+    active  = ['Active']
+    info    = ['Waiting for re-match', 'Waiting for 1st match', 'On hold']
+    warning = ['Declined match', 'Unable to contact', 'Cannot match', 'Moved']
+    danger  = ['Exited', 'No show to appointment', 'Dropped out of training']
 
-    klass = 'success' if active_status.include? status
-    klass = 'info'    if info_status.include? status
-    klass = 'warning' if warning_status.include? status
-    klass = 'danger'  if danger_status.include? status
+    klass = ('success' if active.include? status)  ||
+            ('info'    if info.include? status)    ||
+            ('warning' if warning.include? status) ||
+            ('danger'  if danger.include? status)
     klass
   end
 end

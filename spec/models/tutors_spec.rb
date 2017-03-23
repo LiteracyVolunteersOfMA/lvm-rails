@@ -356,5 +356,27 @@ RSpec.describe Tutor, type: :model do
         end
       end
     end
+
+    describe '#status_class_indicator' do
+      it 'returns the success contextual class for active tutors' do
+        @tutor = create(:tutor, status: 'Active')
+        expect(@tutor.status_class_indicator).to eq 'success'
+      end
+
+      it 'returns the info contextual class for waiting tutors' do
+        @tutor = create(:tutor, status: 'On hold')
+        expect(@tutor.status_class_indicator).to eq 'info'
+      end
+
+      it 'returns the warning contextual class for problematic tutors' do
+        @tutor = create(:tutor, status: 'Moved')
+        expect(@tutor.status_class_indicator).to eq 'warning'
+      end
+
+      it 'returns the danger contextual class for exited tutors' do
+        @tutor = create(:tutor, status: 'Exited')
+        expect(@tutor.status_class_indicator).to eq 'danger'
+      end
+    end
   end
 end

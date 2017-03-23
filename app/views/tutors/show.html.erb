@@ -410,20 +410,22 @@
             </div>
             <hr>
 
-            <% if !@tutor.all_tags.empty? %>
-              <% @tutor.all_tags.each do |name| %>
-                <span class='tag'><%= name %></span>
+            <div class="text-center">
+              <% if !@tutor.all_tags.empty? %>
+                <% @tutor.all_tags.each do |name| %>
+                  <span class='tag'><%= name %></span>
+                <% end %>
+              <% else %>
+                <span>No tags added.</span>
               <% end %>
-            <% else %>
-              <span>No tags added.</span>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-xs-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h4>Language Proficiencies</h4>
+            <h4 class="text-center">Language Proficiencies</h4>
             <hr>
             <% languages = JSON.parse(@tutor.language_proficiencies).delete_if {|k,v| v == "None"} %>
             <% if !languages.empty? %>
@@ -455,7 +457,7 @@
       <div class="col-xs-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h4>Emergency Contact</h4>
+            <h4 class="text-center">Emergency Contact</h4>
             <hr>
             <div class="row">
               <div class="col-xs-2 text-center">
