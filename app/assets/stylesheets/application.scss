@@ -144,13 +144,18 @@ label.control-label {
   color: #6d6d6d;
 }
 
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-  border-left: 2px solid #8882d8;
-  color: #8882d8;
-  background-color: white;
+.nav-pills > li.active {
+  a, a:hover, a:focus {
+    border-left: 2px solid #8882d8;
+    color: #8882d8;
+    background-color: white;
+  }
 }
+
+.margin-right-sm {
+  margin-right: 10px;
+}
+
 
 // Tags
 span.tag {
