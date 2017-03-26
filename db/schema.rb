@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170316233723) do
 
+
   create_table "affiliates", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -26,8 +27,8 @@ ActiveRecord::Schema.define(version: 20170316233723) do
   create_table "coordinators", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "affiliate_id"
     t.string   "phone_number"
     t.date     "dob"
@@ -110,6 +111,23 @@ ActiveRecord::Schema.define(version: 20170316233723) do
     t.integer  "exam_id"
     t.index ["affiliate_id"], name: "index_students_on_affiliate_id"
     t.index ["exam_id"], name: "index_students_on_exam_id"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "tutor_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_taggings_on_student_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["tutor_id"], name: "index_taggings_on_tutor_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tutor_comments", force: :cascade do |t|
