@@ -6,10 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Date of Birth</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -17,9 +13,6 @@
     <% @coordinators.each do |coordinator| %>
       <tr>
         <td><%= coordinator.name %></td>
-        <td><%= coordinator.date_of_birth %></td>
-        <td><%= coordinator.email %></td>
-        <td><%= coordinator.phone_number %></td>
         <td><%= link_to 'Show', coordinator %></td>
         <td><%= link_to 'Edit', edit_coordinator_path(coordinator) %></td>
         <td><%= link_to 'Delete', coordinator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
