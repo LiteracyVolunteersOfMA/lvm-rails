@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20170327151557) do
     t.integer  "affiliate_id"
     t.integer  "assessment_id"
     t.index ["affiliate_id"], name: "index_students_on_affiliate_id"
-    t.index ["assessment_id"], name: "index_students_on_assessment_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -217,7 +216,6 @@ ActiveRecord::Schema.define(version: 20170327151557) do
     t.string   "preferred_student_level"
     t.string   "other_preferences"
     t.index ["affiliate_id"], name: "index_tutors_on_affiliate_id"
-    t.index ["assessment_id"], name: "index_tutors_on_assessment_id"
   end
 
   create_table "users", force: :cascade do |t|
