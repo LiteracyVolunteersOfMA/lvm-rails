@@ -1,7 +1,6 @@
 require 'assessments_helper'
 
 students = [*1..20].shuffle
-tutors = [*1..20].shuffle
 
 20.times do
   Assessment.seed do |a|
