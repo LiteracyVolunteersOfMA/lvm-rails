@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327151557) do
+ActiveRecord::Schema.define(version: 20170327211752) do
 
   create_table "affiliates", force: :cascade do |t|
     t.string   "name"
@@ -107,9 +107,7 @@ ActiveRecord::Schema.define(version: 20170327151557) do
     t.string   "address2"
     t.integer  "smartt_id"
     t.integer  "affiliate_id"
-    t.integer  "assessment_id"
     t.index ["affiliate_id"], name: "index_students_on_affiliate_id"
-    t.index ["assessment_id"], name: "index_students_on_assessment_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -210,14 +208,12 @@ ActiveRecord::Schema.define(version: 20170327151557) do
     t.integer  "age_preference"
     t.integer  "category_preference"
     t.integer  "affiliate_id"
-    t.integer  "assessment_id"
     t.boolean  "meet_at_local_library"
     t.string   "where_can_meet"
     t.integer  "transportation"
     t.string   "preferred_student_level"
     t.string   "other_preferences"
     t.index ["affiliate_id"], name: "index_tutors_on_affiliate_id"
-    t.index ["assessment_id"], name: "index_tutors_on_assessment_id"
   end
 
   create_table "users", force: :cascade do |t|
