@@ -50,6 +50,6 @@ class AssessmentsController < ApplicationController
   end
 
   def assessment_params
-    params.require(:assessment).permit(:score, :assessment_date, :subject)
+    params.require(:assessment).permit(:score, :date, :subject)
   end
 end
