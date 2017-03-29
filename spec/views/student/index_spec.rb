@@ -6,7 +6,7 @@ RSpec.describe 'students/index.html.erb', type: :view do
       @students = [create(:student, first_name: 'Joe', last_name: 'Lally',
                                     gender: 'male'),
                    create(:student, first_name: 'Tim', last_name: 'Bradley',
-                                  gender: 'male')]
+                                    gender: 'male')]
       render
     end
 
