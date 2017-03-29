@@ -98,10 +98,6 @@ RSpec.describe Student, type: :model do
     end
 
     describe 'zip' do
-      it 'validates presence' do
-        should validate_presence_of(:zip)
-      end
-
       it 'validates format' do
         should allow_value('03923').for(:zip)
         should allow_value('54321').for(:zip)
@@ -135,7 +131,8 @@ RSpec.describe Student, type: :model do
 
   describe '#name' do
     it 'concatenates first_name and last_name' do
-      student = create(:student, first_name: 'Test', last_name: 'Testerson')
+      student = create(:student, first_name: 'Test', last_name: 'Testerson',
+                                 gender: 'male')
       full_name = 'Test Testerson'
       expect(student.name).to eq(full_name)
     end

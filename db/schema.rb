@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.integer  "availability"
     t.integer  "tutor_preference"
     t.string   "address2"
-    t.integer  "smartt_id",                     null: false
+    t.integer  "smartt_id"
     t.integer  "affiliate_id"
     t.string   "status"
     t.string   "status_date_of_change"
