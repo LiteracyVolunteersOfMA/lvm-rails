@@ -23,8 +23,7 @@ class UpdateNewStudentFields < ActiveRecord::Migration[5.0]
     change_column_null :students, :first_name, false
     change_column_null :students, :last_name, false
     change_column_null :students, :gender, false
-    change_column_null :students, :smartt_id, false
-    
+
     # add student comments
     create_table :student_comments do |t|
       t.belongs_to :student
