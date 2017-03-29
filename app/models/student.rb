@@ -4,7 +4,7 @@ class Student < ApplicationRecord
   VALID_ZIP_REGEX    = /\A[0-9]{5}\z/
   VALID_SMARTT_REGEX = /\A[0-9]{4}-[0-9]{6}\z/
   LAST_NAME_ID_REGEX = /\A[0-9]{4,5}\z/
-  
+
   has_many :matches
   has_many :tutors, through: :matches
 
@@ -36,34 +36,31 @@ class Student < ApplicationRecord
   # validates :race, presence: true
   # validates :is_hispanic, presence: true
   # validates :origin_country, presence: true
-  
   validates :cell_phone,   format: { with: VALID_PHONE_REGEX }
   validates :home_phone,   format: { with: VALID_PHONE_REGEX }
   validates :last_name_id, format: { with: LAST_NAME_ID_REGEX },
                            allow_blank: true
-  validates :work_phone,  format: { with: VALID_PHONE_REGEX },
-                           allow_blank: true
+  validates :work_phone, format: { with: VALID_PHONE_REGEX },
+                         allow_blank: true
   validates :alternate_number,  format: { with: VALID_PHONE_REGEX },
-                           allow_blank: true
+                                allow_blank: true
   validates :emergency_number,  format: { with: VALID_PHONE_REGEX },
-                           allow_blank: true
+                                allow_blank: true
   validates :smartt_id,    format: { with: VALID_SMARTT_REGEX },
                            allow_blank: true
   validates :zip,          format: { with: VALID_ZIP_REGEX }
-  
   validates :email, length: { maximum: 255 },
-                              format: { with: VALID_EMAIL_REGEX },
-                              uniqueness: { case_sensitive: false },
-                              allow_blank: true
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false },
+                    allow_blank: true
 
   def name
     [first_name, last_name].join(' ')
   end
-  
+
   # ======================
   # needs prefernce arrays
   # ======================
-  
   def all_tags=(names)
     self.tags = names.reject(&:empty?).uniq.map do |name|
       Tag.where(name: name.strip).first_or_create!
@@ -77,5 +74,4 @@ class Student < ApplicationRecord
   # ======================
   # needs status class
   # ======================
-  
 end
