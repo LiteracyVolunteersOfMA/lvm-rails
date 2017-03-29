@@ -45,10 +45,6 @@ RSpec.describe Student, type: :model do
     end
 
     describe 'last_name_id' do
-      it 'validates presence' do
-        should validate_presence_of(:last_name_id)
-      end
-
       it 'validates format' do
         should allow_value('0123').for(:last_name_id)
         should allow_value('01234').for(:last_name_id)
@@ -108,7 +104,7 @@ RSpec.describe Student, type: :model do
     end
 
     describe 'email' do
-      subject { FactoryGirl.build(:tutor) }
+      subject { FactoryGirl.build(:student) }
 
       it 'validates length' do
         should validate_length_of(:email)
