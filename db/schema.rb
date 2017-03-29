@@ -68,13 +68,21 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.index ["tutor_id"], name: "index_matches_on_tutor_id"
   end
 
+  create_table "student_comments", force: :cascade do |t|
+    t.integer  "student_id"
+    t.text     "content",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_student_comments_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "first_name"
-    t.string   "last_name"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "first_name",                    null: false
+    t.string   "last_name",                     null: false
     t.date     "dob"
-    t.string   "gender"
+    t.string   "gender",                        null: false
     t.string   "address1"
     t.string   "city"
     t.string   "state"
@@ -103,8 +111,26 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.integer  "availability"
     t.integer  "tutor_preference"
     t.string   "address2"
-    t.integer  "smartt_id"
+    t.integer  "smartt_id",                     null: false
     t.integer  "affiliate_id"
+    t.string   "status"
+    t.string   "status_date_of_change"
+    t.string   "status_changed_by"
+    t.string   "last_name_id"
+    t.string   "preferred_contact"
+    t.string   "immigrant_status"
+    t.string   "education"
+    t.text     "services_requested"
+    t.text     "additional_services_requested"
+    t.boolean  "criminal_conviction"
+    t.boolean  "release_on_file"
+    t.date     "release_sign_date"
+    t.boolean  "cdbg_required"
+    t.boolean  "cdbg_us_citizen"
+    t.boolean  "cdbg_legal_resident"
+    t.boolean  "cdbg_female_head_of_household"
+    t.integer  "cdbg_household_size"
+    t.integer  "cdbg_household_income"
     t.index ["affiliate_id"], name: "index_students_on_affiliate_id"
   end
 
