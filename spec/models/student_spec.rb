@@ -32,13 +32,12 @@ RSpec.describe Student, type: :model do
   end
 
   describe 'validations' do
-    
     describe 'first_name' do
       it 'validates presence' do
         should validate_presence_of(:first_name)
       end
     end
-    
+
     describe 'last_name' do
       it 'validates presence' do
         should validate_presence_of(:last_name)
@@ -49,7 +48,7 @@ RSpec.describe Student, type: :model do
       it 'validates presence' do
         should validate_presence_of(:last_name_id)
       end
-      
+
       it 'validates format' do
         should allow_value('0123').for(:last_name_id)
         should allow_value('01234').for(:last_name_id)
@@ -58,9 +57,8 @@ RSpec.describe Student, type: :model do
         should_not allow_value('O1234').for(:last_name_id)
       end
     end
-    
-    describe 'cell_phone' do
 
+    describe 'cell_phone' do
       it 'validates format' do
         should allow_value('(555) 555-5555').for(:cell_phone)
         should_not allow_value('555-555-5555').for(:cell_phone)
@@ -72,9 +70,8 @@ RSpec.describe Student, type: :model do
         should_not allow_value('(abc) 123-defg').for(:cell_phone)
       end
     end
-    
-    describe 'home_phone' do
 
+    describe 'home_phone' do
       it 'validates format' do
         should allow_value('(555) 555-5555').for(:home_phone)
         should_not allow_value('555-555-5555').for(:home_phone)
@@ -86,9 +83,8 @@ RSpec.describe Student, type: :model do
         should_not allow_value('(abc) 123-defg').for(:cell_phone)
       end
     end
-    
-    describe 'work_phone' do
 
+    describe 'work_phone' do
       it 'validates format' do
         should allow_value('(555) 555-5555').for(:work_phone)
         should_not allow_value('555-555-5555').for(:work_phone)
@@ -100,7 +96,7 @@ RSpec.describe Student, type: :model do
         should_not allow_value('(abc) 123-defg').for(:work_phone)
       end
     end
-    
+
     describe 'zip' do
       it 'validates presence' do
         should validate_presence_of(:zip)
@@ -114,7 +110,7 @@ RSpec.describe Student, type: :model do
         should_not allow_value('abcde').for(:zip)
       end
     end
-    
+
     describe 'email' do
       subject { FactoryGirl.build(:tutor) }
 
@@ -135,7 +131,6 @@ RSpec.describe Student, type: :model do
         should validate_uniqueness_of(:email).case_insensitive
       end
     end
-    
   end
 
   describe '#name' do
