@@ -1,3 +1,4 @@
+# rubocop:disable ClassLength, MethodLength
 class StudentsController < ApplicationController
   helper_method :tutor_options
 
@@ -59,7 +60,7 @@ class StudentsController < ApplicationController
   end
 
   private
-  
+
   def calculate_preferences(params)
     times = params[:student][:availability]
     age = params[:student][:age_preference]
