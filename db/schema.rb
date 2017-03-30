@@ -68,14 +68,6 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.index ["tutor_id"], name: "index_matches_on_tutor_id"
   end
 
-  create_table "student_comments", force: :cascade do |t|
-    t.integer  "student_id"
-    t.text     "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_student_comments_on_student_id"
-  end
-
   create_table "students", force: :cascade do |t|
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -109,7 +101,6 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.string   "native_language"
     t.string   "origin_country"
     t.integer  "availability"
-    t.integer  "tutor_preference"
     t.string   "address2"
     t.integer  "smartt_id"
     t.integer  "affiliate_id"
@@ -131,6 +122,11 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.boolean  "cdbg_female_head_of_household"
     t.integer  "cdbg_household_size"
     t.integer  "cdbg_household_income"
+    t.integer  "age_preference"
+    t.boolean  "meet_at_local_library"
+    t.string   "where_can_meet"
+    t.integer  "transportation"
+    t.string   "other_preferences"
     t.index ["affiliate_id"], name: "index_students_on_affiliate_id"
   end
 

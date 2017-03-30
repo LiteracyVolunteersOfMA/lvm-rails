@@ -13,7 +13,7 @@ class Student < ApplicationRecord
   has_many :assessments
 
   has_many :affiliates
-  has_many :student_comments
+  # has_many :student_comments
 
   has_many :taggings
   has_many :tags, through: :taggings
@@ -61,9 +61,18 @@ class Student < ApplicationRecord
     [first_name, last_name].join(' ')
   end
 
-  # ======================
-  # needs prefernce arrays
-  # ======================
+  def current_availability_array
+    availability ? PreferencesHelper.explode(availability) : []
+  end
+
+  def age_preference_array
+    age_preference ? PreferencesHelper.explode(age_preference) : []
+  end
+
+  def transportation_preference_array
+    transportation ? PreferencesHelper.explode(transportation) : []
+  end
+  
   def all_tags=(names)
     self.tags = names.reject(&:empty?).uniq.map do |name|
       Tag.where(name: name.strip).first_or_create!
@@ -74,7 +83,17 @@ class Student < ApplicationRecord
     tags.map(&:name)
   end
 
-  # ======================
-  # needs status class
-  # ======================
+    # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+  def status_class_indicator
+    active  = ['Active']
+    info    = ['Waiting for re-match', 'Waiting for 1st match', 'On hold']
+    warning = ['Declined match', 'Unable to contact', 'Cannot match', 'Moved']
+    danger  = ['Exited', 'No show to appointment', 'Dropped out of training']
+
+    klass = ('success' if active.include? status)  ||
+            ('info'    if info.include? status)    ||
+            ('warning' if warning.include? status) ||
+            ('danger'  if danger.include? status)
+    klass
+  end
 end

@@ -133,6 +133,22 @@ RSpec.describe Student, type: :model do
       expect(student.name).to eq(full_name)
     end
   end
+  
+  describe '#age_preference_array' do
+    context 'with no value for age_preference' do
+      it 'produces an empty array' do
+        student = create(:student, age_preference: nil)
+        expect(student.age_preference_array).to eq []
+      end
+    end
+
+    context 'when the student has a category_preference value' do
+      it 'produces an array representing that preference as powers of two' do
+        student = create(:student, age_preference: 19)
+        expect(student.age_preference_array).to eq [1, 2, 0, 0, 16]
+      end
+    end
+  end
 
   describe '#all_tags' do
     before do
@@ -169,6 +185,29 @@ RSpec.describe Student, type: :model do
         @student.all_tags = ['Another Tag', '', 'Donor', '']
         expect(@student.all_tags).to eq ['Donor', 'Another Tag']
         expect(Tagging.where(student_id: @student.id).count).to eq 2
+      end
+    end
+  end
+  
+  describe '#status_class_indicator' do
+      it 'returns the success contextual class for active students' do
+        @student = create(:student, status: 'Active')
+        expect(@student.status_class_indicator).to eq 'success'
+      end
+
+      it 'returns the info contextual class for waiting students' do
+        @student = create(:student, status: 'On hold')
+        expect(@student.status_class_indicator).to eq 'info'
+      end
+
+      it 'returns the warning contextual class for problematic students' do
+        @student = create(:student, status: 'Moved')
+        expect(@student.status_class_indicator).to eq 'warning'
+      end
+
+      it 'returns the danger contextual class for exited students' do
+        @student = create(:student, status: 'Exited')
+        expect(@tutor.status_class_indicator).to eq 'danger'
       end
     end
   end
