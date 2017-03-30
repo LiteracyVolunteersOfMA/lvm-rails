@@ -18,7 +18,7 @@ class UpdateNewStudentFields < ActiveRecord::Migration[5.0]
     add_column :students, :cdbg_female_head_of_household, :boolean
     add_column :students, :cdbg_household_size, :integer
     add_column :students, :cdbg_household_income, :integer
-    
+
     # preferences
     remove_column :students, :tutor_preference
     add_column :students, :age_preference, :integer
