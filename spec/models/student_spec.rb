@@ -134,6 +134,38 @@ RSpec.describe Student, type: :model do
     end
   end
 
+  describe '#current_availability_array' do
+    context 'with no value for availability' do
+      it 'produces an empty array' do
+        student = create(:student, availability: nil)
+        expect(student.current_availability_array).to eq []
+      end
+    end
+
+    context 'when the student has an availability value' do
+      it 'produces an array representing availability as powers of two' do
+        student = create(:student, availability: 21)
+        expect(student.current_availability_array).to eq [1, 0, 4, 0, 16]
+      end
+    end
+  end
+
+  describe '#transportation_preference_array' do
+    context 'with no value for transportation' do
+      it 'produces an empty array' do
+        student = create(:student, transportation: nil)
+        expect(student.transportation_preference_array).to eq []
+      end
+    end
+
+    context 'when the student has an transportation value' do
+      it 'produces an array representing transportation as powers of two' do
+        student = create(:student, transportation: 21)
+        expect(student.transportation_preference_array).to eq [1, 0, 4, 0, 16]
+      end
+    end
+  end
+
   describe '#age_preference_array' do
     context 'with no value for age_preference' do
       it 'produces an empty array' do
