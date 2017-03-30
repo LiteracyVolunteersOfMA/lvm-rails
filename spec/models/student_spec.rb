@@ -207,7 +207,7 @@ RSpec.describe Student, type: :model do
 
     it 'returns the danger contextual class for exited students' do
       @student = create(:student, status: 'Exited')
-      expect(@tutor.status_class_indicator).to eq 'danger'
+      expect(@student.status_class_indicator).to eq 'danger'
     end
   end
 end
