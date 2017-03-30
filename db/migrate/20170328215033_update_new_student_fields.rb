@@ -19,6 +19,7 @@ class UpdateNewStudentFields < ActiveRecord::Migration[5.0]
     add_column :students, :cdbg_household_size, :integer
     add_column :students, :cdbg_household_income, :integer
     
+<<<<<<< HEAD
     # preferences
     remove_column :students, :tutor_preference
     add_column :students, :age_preference, :integer
@@ -27,9 +28,24 @@ class UpdateNewStudentFields < ActiveRecord::Migration[5.0]
     add_column :students, :transportation, :integer
     add_column :students, :other_preferences, :string
     
+=======
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
     # smartt required fields
     change_column_null :students, :first_name, false
     change_column_null :students, :last_name, false
     change_column_null :students, :gender, false
+<<<<<<< HEAD
+=======
+    change_column_null :students, :smartt_id, false
+    
+    # add student comments
+    create_table :student_comments do |t|
+      t.belongs_to :student
+
+      t.text :content, null: false
+
+      t.timestamps
+    end
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
   end
 end

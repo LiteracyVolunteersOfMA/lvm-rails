@@ -4,7 +4,11 @@ class Student < ApplicationRecord
   VALID_ZIP_REGEX    = /\A[0-9]{5}\z/
   VALID_SMARTT_REGEX = /\A[0-9]{4}-[0-9]{6}\z/
   LAST_NAME_ID_REGEX = /\A[0-9]{4,5}\z/
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
   has_many :matches
   has_many :tutors, through: :matches
 
@@ -13,7 +17,11 @@ class Student < ApplicationRecord
   has_many :assessments
 
   has_many :affiliates
+<<<<<<< HEAD
   # has_many :student_comments
+=======
+  has_many :student_comments
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
 
   has_many :taggings
   has_many :tags, through: :taggings
@@ -22,7 +30,11 @@ class Student < ApplicationRecord
   validates :last_name, presence: true
   # validates :dob, presence: true
   validates :gender, presence: true
+<<<<<<< HEAD
   # validates :smartt_id, presence: true
+=======
+  validates :smartt_id, presence: true
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
   # validates :address1, presence: true
   # validates :address2, presence: true
   # validates :city, presence: true
@@ -36,6 +48,7 @@ class Student < ApplicationRecord
   # validates :race, presence: true
   # validates :is_hispanic, presence: true
   # validates :origin_country, presence: true
+<<<<<<< HEAD
   validates :cell_phone,   format: { with: VALID_PHONE_REGEX },
                            allow_blank: true
   validates :home_phone,   format: { with: VALID_PHONE_REGEX },
@@ -56,10 +69,32 @@ class Student < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false },
                     allow_blank: true
+=======
+  
+  validates :cell_phone,   format: { with: VALID_PHONE_REGEX }
+  validates :home_phone,   format: { with: VALID_PHONE_REGEX }
+  validates :last_name_id, format: { with: LAST_NAME_ID_REGEX },
+                           allow_blank: true
+  validates :work_phone,  format: { with: VALID_PHONE_REGEX },
+                           allow_blank: true
+  validates :alternate_number,  format: { with: VALID_PHONE_REGEX },
+                           allow_blank: true
+  validates :emergency_number,  format: { with: VALID_PHONE_REGEX },
+                           allow_blank: true
+  validates :smartt_id,    format: { with: VALID_SMARTT_REGEX },
+                           allow_blank: true
+  validates :zip,          format: { with: VALID_ZIP_REGEX }
+  
+  validates :email, length: { maximum: 255 },
+                              format: { with: VALID_EMAIL_REGEX },
+                              uniqueness: { case_sensitive: false },
+                              allow_blank: true
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
 
   def name
     [first_name, last_name].join(' ')
   end
+<<<<<<< HEAD
 
   def current_availability_array
     availability ? PreferencesHelper.explode(availability) : []
@@ -73,6 +108,13 @@ class Student < ApplicationRecord
     transportation ? PreferencesHelper.explode(transportation) : []
   end
 
+=======
+  
+  # ======================
+  # needs prefernce arrays
+  # ======================
+  
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
   def all_tags=(names)
     self.tags = names.reject(&:empty?).uniq.map do |name|
       Tag.where(name: name.strip).first_or_create!
@@ -83,6 +125,7 @@ class Student < ApplicationRecord
     tags.map(&:name)
   end
 
+<<<<<<< HEAD
   # rubocop:disable CyclomaticComplexity, PerceivedComplexity
   def status_class_indicator
     active  = ['Active']
@@ -96,4 +139,10 @@ class Student < ApplicationRecord
             ('danger'  if danger.include? status)
     klass
   end
+=======
+  # ======================
+  # needs status class
+  # ======================
+  
+>>>>>>> 6b0494ab2046868eee9b7345cb3558d1a0b2e3dd
 end
