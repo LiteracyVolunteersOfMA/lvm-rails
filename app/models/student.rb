@@ -72,7 +72,7 @@ class Student < ApplicationRecord
   def transportation_preference_array
     transportation ? PreferencesHelper.explode(transportation) : []
   end
-  
+
   def all_tags=(names)
     self.tags = names.reject(&:empty?).uniq.map do |name|
       Tag.where(name: name.strip).first_or_create!
@@ -83,7 +83,7 @@ class Student < ApplicationRecord
     tags.map(&:name)
   end
 
-    # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+  # rubocop:disable CyclomaticComplexity, PerceivedComplexity
   def status_class_indicator
     active  = ['Active']
     info    = ['Waiting for re-match', 'Waiting for 1st match', 'On hold']
