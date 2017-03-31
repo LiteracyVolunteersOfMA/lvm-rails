@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170331012936) do
-=======
-ActiveRecord::Schema.define(version: 20170328215033) do
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
 
   create_table "affiliates", force: :cascade do |t|
     t.string   "name"
@@ -77,11 +73,7 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.datetime "updated_at",                    null: false
     t.string   "first_name",                    null: false
     t.string   "last_name",                     null: false
-<<<<<<< HEAD
     t.date     "date_of_birth"
-=======
-    t.date     "dob"
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
     t.string   "gender",                        null: false
     t.string   "address1"
     t.string   "city"
@@ -116,19 +108,11 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.string   "status_date_of_change"
     t.string   "status_changed_by"
     t.string   "last_name_id"
-<<<<<<< HEAD
     t.string   "preferred_contact_method"
     t.string   "immigrant_status"
     t.string   "education"
     t.text     "core_service_request"
     t.text     "additional_service_request"
-=======
-    t.string   "preferred_contact"
-    t.string   "immigrant_status"
-    t.string   "education"
-    t.text     "services_requested"
-    t.text     "additional_services_requested"
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
     t.boolean  "criminal_conviction"
     t.boolean  "release_on_file"
     t.date     "release_sign_date"
@@ -138,19 +122,13 @@ ActiveRecord::Schema.define(version: 20170328215033) do
     t.boolean  "cdbg_female_head_of_household"
     t.integer  "cdbg_household_size"
     t.integer  "cdbg_household_income"
-<<<<<<< HEAD
     t.date     "intake_date"
-=======
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
     t.integer  "age_preference"
     t.boolean  "meet_at_local_library"
     t.string   "where_can_meet"
     t.integer  "transportation"
     t.string   "other_preferences"
-<<<<<<< HEAD
     t.         "referral_other"
-=======
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
     t.index ["affiliate_id"], name: "index_students_on_affiliate_id"
   end
 

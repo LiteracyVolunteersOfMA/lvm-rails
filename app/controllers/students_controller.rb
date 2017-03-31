@@ -82,11 +82,7 @@ class StudentsController < ApplicationController
     params.require(:student).permit(
       :first_name,
       :last_name,
-<<<<<<< HEAD
       :date_of_birth,
-=======
-      :dob,
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
       :gender,
       :address1,
       :address2,
@@ -105,7 +101,6 @@ class StudentsController < ApplicationController
       :work_phone,
       :work_lvm_ok,
       :work_lvm_ok,
-<<<<<<< HEAD
       :other_phone,
       :emergency_contact_name,
       :emergency_contact_phone,
@@ -114,15 +109,6 @@ class StudentsController < ApplicationController
       :why_lvm,
       :race,
       :hispanic_or_latino,
-=======
-      :alternate_number,
-      :emergency_name,
-      :emergency_number,
-      :referral,
-      :why_lvm,
-      :race,
-      :is_hispanic,
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
       :native_language,
       :origin_country,
       :availability,
@@ -132,19 +118,11 @@ class StudentsController < ApplicationController
       :status_date_of_change,
       :status_changed_by,
       :last_name_id,
-<<<<<<< HEAD
       :preferred_contact_method,
       :immigrant_status,
       :education,
       :core_service_request,
       :additional_service_request,
-=======
-      :preferred_contact,
-      :immigrant_status,
-      :education,
-      :services_requested,
-      :additional_services_requested,
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
       :criminal_conviction,
       :release_on_file,
       :release_sign_date,
@@ -153,12 +131,8 @@ class StudentsController < ApplicationController
       :cdbg_legal_resident,
       :cdbg_female_head_of_household,
       :cdbg_household_size,
-<<<<<<< HEAD
       :cdbg_household_income,
       all_tags: []
-=======
-      :cdbg_household_income
->>>>>>> 93d0e851c7fd45c39a452bb13982436380e709d1
     )
   end
 
