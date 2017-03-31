@@ -41,6 +41,13 @@ class StudentsController < ApplicationController
       render 'edit'
     end
   end
+  
+  def update_tags
+    @student = Student.find(params[:id])
+    @student.all_tags = params[:student][:all_tags]
+
+    redirect_to tutor_path(@student)
+  end
 
   def destroy
     @student = Student.find(params[:id])
@@ -75,7 +82,7 @@ class StudentsController < ApplicationController
     params.require(:student).permit(
       :first_name,
       :last_name,
-      :dob,
+      :date_of_birth,
       :gender,
       :address1,
       :address2,
@@ -94,13 +101,14 @@ class StudentsController < ApplicationController
       :work_phone,
       :work_lvm_ok,
       :work_lvm_ok,
-      :alternate_number,
-      :emergency_name,
-      :emergency_number,
+      :other_phone,
+      :emergency_contact_name,
+      :emergency_contact_phone,
       :referral,
+      :referral_other,
       :why_lvm,
       :race,
-      :is_hispanic,
+      :hispanic_or_latino,
       :native_language,
       :origin_country,
       :availability,
@@ -110,11 +118,11 @@ class StudentsController < ApplicationController
       :status_date_of_change,
       :status_changed_by,
       :last_name_id,
-      :preferred_contact,
+      :preferred_contact_method,
       :immigrant_status,
       :education,
-      :services_requested,
-      :additional_services_requested,
+      :core_service_request,
+      :additional_service_request,
       :criminal_conviction,
       :release_on_file,
       :release_sign_date,
@@ -123,7 +131,8 @@ class StudentsController < ApplicationController
       :cdbg_legal_resident,
       :cdbg_female_head_of_household,
       :cdbg_household_size,
-      :cdbg_household_income
+      :cdbg_household_income,
+      all_tags: []
     )
   end
 
