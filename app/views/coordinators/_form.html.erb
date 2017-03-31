@@ -18,22 +18,22 @@
     <h4>Information</h4>
     <hr>
     <div class="row">
-      <div class ="col-md-4">
+      <div class ="col-md-6">
         <%= f.input :name, maxlength: 255, required: true %>
       </div>
 
-      <div class = "col-md-4"
+      <div class = "col-md-6"
         <div class="form-group">
           <%= f.input :date_of_birth, input_html: { class: 'datepicker' }, placeholder: "YYYY-MM-DD", required: true %>
         </div>
       </div>
 
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <%= f.input :email, maxlength: 255, required: true, input_html: { class: "mask_email" } %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         <%= f.input :phone_number, maxlength: 14, placeholder: "(###) ###-####", required: true, input_html: { class: "mask_phone" } %>
       </div>
     </div>
