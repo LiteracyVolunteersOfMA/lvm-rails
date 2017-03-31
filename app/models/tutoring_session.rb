@@ -4,7 +4,7 @@ class TutoringSession < ApplicationRecord
 
   validates :location, presence: true
   validates :hours, presence: true,
-                    length: { maximum: 4 }
+                    length: { maximum: 2 }
   validates :start_date, presence: true
   validates :end_date, presence: true
   # validates :student,      presence: true
