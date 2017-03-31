@@ -41,7 +41,7 @@ class StudentsController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def update_tags
     @student = Student.find(params[:id])
     @student.all_tags = params[:student][:all_tags]

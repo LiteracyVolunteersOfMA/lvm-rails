@@ -30,9 +30,9 @@ class Student < ApplicationRecord
   validates :work_phone, format: { with: VALID_PHONE_REGEX },
                          allow_blank: true
   validates :other_phone,  format: { with: VALID_PHONE_REGEX },
-                                     allow_blank: true
+                           allow_blank: true
   validates :emergency_contact_phone,  format: { with: VALID_PHONE_REGEX },
-                                                 allow_blank: true
+                                       allow_blank: true
   validates :smartt_id,    format: { with: VALID_SMARTT_REGEX },
                            allow_blank: true
   validates :zip,          format: { with: VALID_ZIP_REGEX },
