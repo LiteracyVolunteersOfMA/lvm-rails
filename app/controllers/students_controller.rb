@@ -21,8 +21,8 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
     calculate_preferences(params)
+    @student = Student.new(student_params)
 
     if @student.save
       redirect_to @student
@@ -32,8 +32,8 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
     calculate_preferences(params)
+    @student = Student.find(params[:id])
 
     if @student.update(student_params)
       redirect_to @student
@@ -99,7 +99,7 @@ class StudentsController < ApplicationController
       :home_ok,
       :home_lvm_ok,
       :work_phone,
-      :work_lvm_ok,
+      :work_ok,
       :work_lvm_ok,
       :other_phone,
       :emergency_contact_name,
@@ -110,7 +110,7 @@ class StudentsController < ApplicationController
       :race,
       :hispanic_or_latino,
       :native_language,
-      :origin_country,
+      :country_of_birth,
       :availability,
       :smartt_id,
       :affiliate,
@@ -132,6 +132,13 @@ class StudentsController < ApplicationController
       :cdbg_female_head_of_household,
       :cdbg_household_size,
       :cdbg_household_income,
+      :intake_date,
+      :age_preference,
+      :meet_at_local_library,
+      :where_can_meet,
+      :transportation,
+      :other_preferences,
+      :referral_other,
       all_tags: []
     )
   end

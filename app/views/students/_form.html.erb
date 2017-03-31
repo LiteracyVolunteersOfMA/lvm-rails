@@ -188,7 +188,6 @@
         <div class="form-group">
           <label class="control-label"> Mail </label>
           <%= f.input :mail_ok, as: :boolean, input_html: {checked: false}, label: "mail ok?", required: false %>
-          <%= f.input :mail_lvm_ok, as: :boolean, input_html: {checked: false}, label: "lvm ok?", required: false %>
        </div>
       </div>
       
@@ -196,7 +195,6 @@
         <div class="form-group">
           <label class="control-label"> Email </label>
           <%= f.input :email_ok, as: :boolean, input_html: {checked: false}, label: "email ok?", required: false %>
-          <%= f.input :email_lvm_ok, as: :boolean, input_html: {checked: false}, label: "lvm ok?", required: false %>
        </div>
       </div>
       
@@ -245,7 +243,7 @@
                     required: false %>
       </div>
       <div class="col-md-6">
-        <%= f.input :transporation,
+        <%= f.input :transportation,
                     as: :check_boxes,
                     collection: transportation_preference,
                     checked: @student.transportation_preference_array,
