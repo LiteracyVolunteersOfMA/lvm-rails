@@ -166,20 +166,20 @@ RSpec.describe StudentsController, type: :controller do
 
     describe 'PATCH #update_tags' do
       before do
-        @tutor = create(:tutor)
-        @params = { id: @tutor.id, tutor: { 'all_tags' => ['', 'test'] } }
+        @student = create(:student)
+        @params = { id: @student.id, student: { 'all_tags' => ['', 'test'] } }
       end
 
       context 'with valid attributes' do
-        it 'updates the tags for a tutor' do
+        it 'updates the tags for a student' do
           patch :update_tags, params: @params
-          expect(Tutor.last.tags).to eq([Tag.last])
+          expect(Student.last.tags).to eq([Tag.last])
           expect(Tag.last.name).to eq 'test'
         end
 
-        it 'redirects to the tutor view' do
+        it 'redirects to the student view' do
           post :update, params: @params
-          expect(response).to redirect_to(@tutor)
+          expect(response).to redirect_to(@student)
         end
       end
     end
