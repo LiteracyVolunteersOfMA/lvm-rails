@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'assessments/show' do
   before(:each) do
-    @assessment = create(:assessment, name: 'MAPT', assessment_type: 'Does not apply')
+    @assessment = create(:assessment, name: 'MAPT',
+                                      assessment_type: 'Does not apply')
   end
 
   it 'displays the attributes in <p>' do

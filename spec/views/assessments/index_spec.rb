@@ -2,8 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'assessments/index', type: :view do
   before(:each) do
-    @assessment = create(:assessment, name: 'TABE 10', assessment_type: 'Does not apply')
-    @assessment2 = create(:assessment, name: 'TABE 9', assessment_type: 'Does not apply')
+    @assessment = create(:assessment, name: 'TABE 10',
+                                      assessment_type: 'Does not apply')
+    @assessment2 = create(:assessment, name: 'TABE 9',
+                                       assessment_type: 'Does not apply')
+    assign(:assessments, [@assessment, @assessment2])
   end
 
   it 'renders a list of assessments' do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'assessments/edit', type: :view do
   before(:each) do
-    @assessment = create(:assessment, name: 'TABE 9', assessment_type: 'Does not apply')
+    @assessment = create(:assessment)
   end
 
   it 'renders the edit assessment form' do

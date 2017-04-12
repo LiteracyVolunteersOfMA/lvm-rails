@@ -1,3 +1,4 @@
+# rubocop:disable MethodLength
 module AssessmentsHelper
   def assessment_category
     [
