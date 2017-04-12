@@ -27,9 +27,9 @@ module AssessmentsHelper
   def assessment_level
     [
       ['Does not apply', 'Does not apply'],
-      ['easy', 'easy'],
-      ['medium', 'medium'],
-      ['difficult', 'difficult'],
+      ['Easy', 'Easy'],
+      ['Medium', 'Medium'],
+      ['Difficult', 'Difficult'],
       ['1', '1'],
       ['2', '2'],
       ['3', '3'],
