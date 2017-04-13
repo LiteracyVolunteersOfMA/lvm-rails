@@ -1,4 +1,9 @@
 <p>
+  <strong>Student Name:</strong>
+  <%= Assessment.find(@assessment.student_id).name %>
+</p>
+
+<p>
   <strong>Category:</strong>
   <%= @assessment.category %>
 </p>

@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.describe 'assessments/index', type: :view do
   before(:each) do
     @assessment = create(:assessment, name: 'TABE 10',
-                                      assessment_type: 'Does not apply')
+                                      assessment_type: 'Does not apply',
+                                      student: create(:student))
     @assessment2 = create(:assessment, name: 'TABE 9',
-                                       assessment_type: 'Does not apply')
+                                       assessment_type: 'Does not apply',
+                                       student: create(:student))
     assign(:assessments, [@assessment, @assessment2])
   end
 

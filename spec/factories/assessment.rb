@@ -6,5 +6,9 @@ FactoryGirl.define do
     level { AssessmentsHelper.assessment_level.sample[0] }
     name { AssessmentsHelper.assessment_name.sample[0] }
     assessment_type { AssessmentsHelper.assessment_type.sample[0] }
+    student
+    # after(:create) do
+    #   student << create(:student)
+    # end
   end
 end

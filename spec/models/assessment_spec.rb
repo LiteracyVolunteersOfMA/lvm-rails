@@ -30,5 +30,8 @@ RSpec.describe Assessment, type: :model do
     it 'validates date presence' do
       should validate_presence_of(:date)
     end
+    it 'validates student_id presence' do
+      should validate_presence_of(:student_id)
+    end
   end
 end

@@ -7,4 +7,5 @@ class Assessment < ApplicationRecord
   validates :level, presence: true
   validates :assessment_type, presence: true
   validates :date, presence: true
+  validates :student_id, presence: true
 end
