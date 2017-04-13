@@ -54,7 +54,7 @@ RSpec.describe 'students/show.html.erb', type: :view do
 
   describe 'tags' do
     before do
-      @tutor = create(:employed_tutor)
+      @student = create(:matched_student)
     end
 
     context 'with no tags' do
@@ -68,8 +68,8 @@ RSpec.describe 'students/show.html.erb', type: :view do
       before do
         @tag1 = Tag.create(name: 'testing tags')
         @tag2 = Tag.create(name: 'one two three')
-        Tagging.create(tag_id: @tag1.id, tutor_id: @tutor.id)
-        Tagging.create(tag_id: @tag2.id, tutor_id: @tutor.id)
+        Tagging.create(tag_id: @tag1.id, student_id: @student.id)
+        Tagging.create(tag_id: @tag2.id, student_id: @student.id)
       end
 
       it 'renders the tags correctly' do

@@ -123,7 +123,7 @@
                 <h4>Tutor</h4>
               </div>
               <div class="col-sm-6 text-right">
-                <% if !@tutor_options.empty? %>
+                <% if !@tutor_options.nil? %>
                   <%= form_tag('set_tutor', method: 'put') do %>
                     <%= select_tag(:tutor_id, options_for_select(@tutor_options)) %>
                     <%= submit_tag('Set Tutor') %>
