@@ -272,4 +272,13 @@ ActiveRecord::Schema.define(version: 20170413221343) do
 
   create_table "volunteer_jobs", force: :cascade do |t|
     t.integer  "tutor_id"
-    t.integer  "affiliat
+    t.integer  "affiliate_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.date     "start"
+    t.date     "end"
+    t.index ["affiliate_id"], name: "index_volunteer_jobs_on_affiliate_id"
+    t.index ["tutor_id"], name: "index_volunteer_jobs_on_tutor_id"
+  end
+
+end
