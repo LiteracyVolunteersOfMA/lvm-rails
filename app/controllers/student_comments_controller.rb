@@ -12,7 +12,8 @@ class StudentCommentsController < ApplicationController
     if @student_comment.save
       redirect_to student_path(student_comment_params[:student_id])
     else
-      @student = Student.of(current_user).find(student_comment_params[:student_id])
+      @student = Student.of(current_user)
+                        .find(student_comment_params[:student_id])
       render :new
     end
   end
@@ -25,7 +26,8 @@ class StudentCommentsController < ApplicationController
     if @student_comment.update(student_comment_params)
       redirect_to student_path(student_comment_params[:student_id])
     else
-      @student = Student.of(current_user).find(student_comment_params[:student_id])
+      @student = Student.of(current_user)
+                        .find(student_comment_params[:student_id])
       render :edit
     end
   end

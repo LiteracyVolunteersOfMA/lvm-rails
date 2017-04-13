@@ -13,7 +13,7 @@ class Student < ApplicationRecord
 
   has_many :matches
   has_many :tutors, through: :matches
-  
+
   has_many :student_comments
 
   has_many :taggings
