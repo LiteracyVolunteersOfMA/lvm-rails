@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409151938) do
+ActiveRecord::Schema.define(version: 20170413221343) do
 
   create_table "affiliates", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 20170409151938) do
     t.index ["affiliate_id"], name: "index_matches_on_affiliate_id"
     t.index ["student_id"], name: "index_matches_on_student_id"
     t.index ["tutor_id"], name: "index_matches_on_tutor_id"
+  end
+
+  create_table "student_comments", force: :cascade do |t|
+    t.integer  "student_id"
+    t.text     "content",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_student_comments_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -264,13 +272,4 @@ ActiveRecord::Schema.define(version: 20170409151938) do
 
   create_table "volunteer_jobs", force: :cascade do |t|
     t.integer  "tutor_id"
-    t.integer  "affiliate_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.date     "start"
-    t.date     "end"
-    t.index ["affiliate_id"], name: "index_volunteer_jobs_on_affiliate_id"
-    t.index ["tutor_id"], name: "index_volunteer_jobs_on_tutor_id"
-  end
-
-end
+    t.integer  "affiliat
