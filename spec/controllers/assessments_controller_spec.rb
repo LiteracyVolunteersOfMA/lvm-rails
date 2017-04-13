@@ -8,6 +8,7 @@ RSpec.describe AssessmentsController, type: :controller do
       @student = create(:student)
       @assessment = create(:assessment, student: @student)
       @assessment_attrs = attributes_for(:assessment)
+      @assessment_attrs[:student_id] = @student.id
     end
 
     describe 'GET #index' do
