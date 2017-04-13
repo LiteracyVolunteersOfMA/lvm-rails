@@ -51,7 +51,7 @@ RSpec.describe 'students/show.html.erb', type: :view do
       end
     end
   end
-  
+
   describe 'tags' do
     before do
       @tutor = create(:employed_tutor)
