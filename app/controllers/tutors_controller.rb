@@ -98,6 +98,14 @@ class TutorsController < ApplicationController
     redirect_to Tutor.of(current_user).find(tutor_id)
   end
 
+  def remove_student
+    student_id = params[:student_id]
+    tutor_id = params[:tutor_id]
+    Match.delete(student_id: student_id, tutor_id: tutor_id)
+    redirect_to Tutor.of(current_user).find(tutor_id)
+  end
+
+
   private
 
   def tutor_params
