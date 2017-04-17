@@ -223,7 +223,7 @@ div class="row">
                       <tr>
                         <td> <%= link_to s.name, s %> </td>
                         <td> <%= s.email %> </td>
-                        <td> <%= form_tag('remove_student', method: 'delete') do %>
+                        <td> <%= form_tag('remove_student', method: 'patch') do %>
                                <%= submit_tag('Remove Student') %>
                                <%= hidden_field_tag(:tutor_id, @tutor.id) %>
                                <%= hidden_field_tag(:student_id, s.id) %>
