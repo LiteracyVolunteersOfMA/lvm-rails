@@ -162,6 +162,13 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-xs-12">
+                        <span class="comment-author">
+                          <% if c.author != "Administrator" && current_user.role == 2%>
+                            <%= link_to c.author, controller: "coordinators", action: "show", id: c.commented_by %>
+                          <% else %>
+                            <%= c.author %>
+                          <% end %>
+                        </span>
                         <%= c.content %>
                       </div>
                     </div>
@@ -414,6 +421,13 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-xs-12">
+                        <span class="comment-author">
+                          <% if c.author != "Administrator" && current_user.role == 2 %>
+                            <%= link_to c.author, controller: "coordinators", action: "show", id: c.commented_by %>
+                          <% else %>
+                            <%= c.author %>
+                          <% end %>
+                        </span>
                         <%= c.content %>
                       </div>
                     </div>
