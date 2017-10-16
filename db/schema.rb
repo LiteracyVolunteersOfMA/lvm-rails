@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418211716) do
+ActiveRecord::Schema.define(version: 20171009223022) do
 
   create_table "affiliates", force: :cascade do |t|
     t.string   "name"
@@ -77,9 +77,10 @@ ActiveRecord::Schema.define(version: 20170418211716) do
 
   create_table "student_comments", force: :cascade do |t|
     t.integer  "student_id"
-    t.text     "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "content",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "commented_by"
     t.index ["student_id"], name: "index_student_comments_on_student_id"
   end
 
@@ -166,9 +167,10 @@ ActiveRecord::Schema.define(version: 20170418211716) do
 
   create_table "tutor_comments", force: :cascade do |t|
     t.integer  "tutor_id"
-    t.text     "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "content",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "commented_by"
     t.index ["tutor_id"], name: "index_tutor_comments_on_tutor_id"
   end
 
