@@ -57,7 +57,8 @@ class StudentCommentsController < ApplicationController
       :content,
       :student_id
     ).merge(
-      commented_by: current_user.id)
+      commented_by: current_user.id
+    )
   end
 
   def set_student_comment

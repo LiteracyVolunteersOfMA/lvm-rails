@@ -55,7 +55,8 @@ class TutorCommentsController < ApplicationController
       :content,
       :tutor_id
     ).merge(
-      commented_by: current_user.id)
+      commented_by: current_user.id
+    )
   end
 
   def set_tutor_comment
