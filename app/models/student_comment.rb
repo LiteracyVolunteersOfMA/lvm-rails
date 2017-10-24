@@ -8,7 +8,7 @@ class StudentComment < ApplicationRecord
     if User.find(commented_by).role == 1
       Coordinator.find(commented_by).name
     elsif User.find(commented_by).role == 2
-      return 'Administrator'
+      'Administrator'
     end
   end
 end
