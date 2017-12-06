@@ -56,6 +56,8 @@ class StudentCommentsController < ApplicationController
     params.require(:student_comment).permit(
       :content,
       :student_id
+    ).merge(
+      commented_by: current_user.id
     )
   end
 

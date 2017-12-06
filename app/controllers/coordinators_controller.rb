@@ -69,6 +69,8 @@ class CoordinatorsController < ApplicationController
   end
 
   def destroy
+    TutorComment.where(commented_by: @coordinator.id).destroy_all
+    StudentComment.where(commented_by: @coordinator.id).destroy_all
     @coordinator.destroy
 
     redirect_to coordinators_path

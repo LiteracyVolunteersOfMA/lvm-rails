@@ -54,6 +54,8 @@ class TutorCommentsController < ApplicationController
     params.require(:tutor_comment).permit(
       :content,
       :tutor_id
+    ).merge(
+      commented_by: current_user.id
     )
   end
 
