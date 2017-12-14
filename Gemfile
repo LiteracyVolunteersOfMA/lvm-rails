@@ -15,7 +15,7 @@ gem 'jquery-rails', '~> 4.2'
 gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'rails', '~> 5.0'
 gem 'rainbow', '< 2.2.1'
-gem 'rubocop', '~> 0.47', require: false
+gem 'rubocop', '~> 0.49.1', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'seed-fu', '~> 2.3'
 gem 'simple_form', '~> 3.4.0'
