@@ -22,7 +22,7 @@ FactoryGirl.define do
     state { ApplicationHelper.us_states.sample[0] }
     status { TutorsHelper.status_options.sample[0] }
     training_date { Faker::Date.between(10.years.ago, 1.day.ago) }
-    training_type %w(ABE ESOL).sample
+    training_type %w[ABE ESOL].sample
     zip { Faker::Base.numerify('#####') }
   end
 
@@ -49,7 +49,7 @@ FactoryGirl.define do
     state { ApplicationHelper.us_states.sample[0] }
     status { TutorsHelper.status_options.sample[0] }
     training_date { Faker::Date.between(10.years.ago, 1.day.ago) }
-    training_type %w(ABE ESOL).sample
+    training_type %w[ABE ESOL].sample
     zip { Faker::Base.numerify('#####') }
     after(:create) do |tutor|
       affiliate = create(:affiliate)

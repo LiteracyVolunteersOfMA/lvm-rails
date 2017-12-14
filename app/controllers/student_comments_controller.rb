@@ -1,7 +1,7 @@
 class StudentCommentsController < ApplicationController
   before_action :set_student, only: [:new]
-  before_action :set_student_comment, only: [:edit, :update, :destroy]
-  before_action :set_student_of_comment, only: [:edit, :destroy]
+  before_action :set_student_comment, only: %i[edit update destroy]
+  before_action :set_student_of_comment, only: %i[edit destroy]
 
   add_breadcrumb 'Home', :root_path
 

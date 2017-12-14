@@ -1,5 +1,5 @@
 class AffiliatesController < ApplicationController
-  before_action :set_affiliate, only: [:show, :edit, :update, :destroy]
+  before_action :set_affiliate, only: %i[show edit update destroy]
   before_action :ensure_admin!
 
   add_breadcrumb 'Home', :root_path

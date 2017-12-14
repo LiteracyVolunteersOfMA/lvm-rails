@@ -1,6 +1,6 @@
 class TutorsController < ApplicationController
   before_action :ensure_coordinator_or_admin!
-  before_action :set_tutor, only: [:show, :edit]
+  before_action :set_tutor, only: %i[show edit]
 
   add_breadcrumb 'Home', :root_path
 

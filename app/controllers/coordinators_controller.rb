@@ -1,6 +1,6 @@
 class CoordinatorsController < ApplicationController
   before_action :ensure_admin!
-  before_action :set_coordinator, only: [:show, :edit, :update, :destroy]
+  before_action :set_coordinator, only: %i[show edit update destroy]
 
   add_breadcrumb 'Home', :root_path
 

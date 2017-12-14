@@ -1,6 +1,6 @@
 class AssessmentsController < ApplicationController
   before_action :ensure_coordinator_or_admin!
-  before_action :set_assessment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assessment, only: %i[show edit update destroy]
 
   add_breadcrumb 'Home', :root_path
 

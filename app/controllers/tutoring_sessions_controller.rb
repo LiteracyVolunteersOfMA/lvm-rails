@@ -2,7 +2,7 @@ class TutoringSessionsController < ApplicationController
   before_action :guard_against_tutors
   before_action :set_student, only: [:student_index]
   before_action :set_tutor, only: [:tutor_index]
-  before_action :set_tutoring_session, only: [:show, :edit, :update, :destroy]
+  before_action :set_tutoring_session, only: %i[show edit update destroy]
 
   add_breadcrumb 'Home', :root_path
 

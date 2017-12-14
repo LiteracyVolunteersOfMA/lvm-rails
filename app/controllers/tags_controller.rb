@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_coordinator_or_admin!, only: [:index, :show]
+  before_action :set_tag, only: %i[show edit update destroy]
+  before_action :ensure_coordinator_or_admin!, only: %i[index show]
 
   add_breadcrumb 'Home', :root_path
 

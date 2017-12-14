@@ -1,5 +1,5 @@
 class TutorCommentsController < ApplicationController
-  before_action :set_tutor_comment, only: [:edit, :update, :destroy]
+  before_action :set_tutor_comment, only: %i[edit update destroy]
   before_action :set_tutor, only: [:new]
 
   add_breadcrumb 'Home', :root_path
